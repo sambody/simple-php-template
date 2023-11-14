@@ -11,18 +11,48 @@ class Session
         }
     }
 
-    private static function get(string $key): string
+    private static function get(string $key): ?string
     {
         self::start();
-        return $_SESSION[$key];
+        if (self::has($key)){
+            return $_SESSION[$key];
+        }
+        return null;
     }
 
-    private static function set(array $params): void
+    private static function set(string $key, $value): void
     {
         self::start();
-        foreach ($params as $key => $value) {
-            $_SESSION[$key] = $value;
+        $_SESSION[$key] = $value;
+    }
+
+//    private static function setAll(array $params): void
+//    {
+//        self::start();
+//        foreach ($params as $key => $value) {
+//            $_SESSION[$key] = $value;
+//        }
+//    }
+
+    private static function has(string $key): bool
+    {
+        return array_key_exists($key, $_SESSION);
+    }
+
+    public static function remove(string $key)
+    {
+        self::start();
+        if (self::has($key)){
+            unset($_SESSION[$key]);
         }
+    }
+
+    // destroy, clear, close the session
+    private static function clear(): void
+    {
+        self::start();
+        $_SESSION = null;
+        session_destroy();
     }
 
     private static function setLoggedIn()
@@ -40,11 +70,10 @@ class Session
         }
     }
 
-    private static function destroy(): void
+    private static function setLoggedOut()
     {
         self::start();
-        $_SESSION = null;
-        session_destroy();
+        self::clear();
     }
 
 }
