@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Data;
+namespace App\Data;
 
-// TODO: test all connections
-// New DB connection for each function?
+// New DB connection for each function? Or reuse?
 
 class ItemDAO
 {
@@ -35,7 +34,7 @@ class ItemDAO
     public function getId(string $email): string
     {
         // Get single value
-        $sql = "select id from users where email = :email";
+        $sql = "select id from items where email = :email";
         $db = new DBConnection($this->config);
         return $db->run($sql, ['email' => $email])->fetchColumn();
     }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Business;
+namespace App\Business;
 
-use Data\UsersDAO;
-use Entities\User;
+use App\Data\UsersDAO;
+use App\Entities\User;
 
 class UserService
 {

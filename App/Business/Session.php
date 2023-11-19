@@ -1,6 +1,6 @@
 <?php
 
-namespace Business;
+namespace App\Business;
 
 class Session
 {

@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Data;
-
-use \PDO;
+namespace App\Data;
 
 class UsersDAO
 {

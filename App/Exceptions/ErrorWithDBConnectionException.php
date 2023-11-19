@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Exceptions;
+namespace App\Exceptions;
 
-use \Exception;
+use Exception;
 
 class ErrorWithDBConnectionException extends Exception
 {

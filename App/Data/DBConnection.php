@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Data;
+namespace App\Data;
 
 use PDO;
 use PDOStatement;

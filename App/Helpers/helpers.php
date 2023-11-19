@@ -2,7 +2,12 @@
 
 declare(strict_types=1);
 
-// To use, either require the file, or add file to composer autoload config file.
+function basePath(string $path){
+    return __DIR__ . '/../' . $path;
+}
+
+// Debug helper functions
+// To use: either require the file or add file to composer autoload config file.
 
 function dd($value)
 {
@@ -21,10 +26,9 @@ function dump($value)
     echo '</pre>';
 }
 
-function writeToLog($message)
+function writeToLog(string $message) // Or use custom log system
 {
     // Write to apache log (or php log if set in php.ini)
-    // Alternative: write to custom file inside project
     date_default_timezone_set('Europe/Brussels');
     error_log($message);
 }

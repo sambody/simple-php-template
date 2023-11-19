@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Business;
+namespace App\Business;
 
-use Data\ItemDAO;
-use Entities\Item;
+use App\Data\ItemDAO;
+use App\Entities\Item;
 
 class ItemService
 {
@@ -26,7 +26,7 @@ class ItemService
 
         $list = array();
         foreach ($resultSet as $result) {
-            $item = new Item($result['titel']);
+            $item = new Item((string) $result['titel']);
             $list[] = $item;
         }
         return $list;
@@ -40,7 +40,7 @@ class ItemService
             return null;
         }
 
-        return new Item($result['titel']);
+        return new Item((string) $result['titel']);
     }
 
     public function add(string $titel): ?string
