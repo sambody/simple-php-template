@@ -4,36 +4,28 @@ declare(strict_types=1);
 
 namespace App\Data;
 
-class UsersDAO
+class UsersDAO extends AbstractDBHandler
 {
-    private array $config;
-
-    public function __construct()
-    {
-        $this->config = require('config.php'); // adapt path?
-    }
     public function getAllUsers(): bool|array
     {
         // Get all rows
         $sql = "select * from gebruikers order by id";
-        $db = new DBConnection($this->config);
-        return $db->run($sql)->fetchAll();
+        return $this->read($sql);
     }
 
     public function getUserByName(string $naam): bool|array
     {
         // Get single row
         $sql = "select gebruikersnaam, wachtwoord from gebruikers where gebruikersnaam = :naam";
-        $db = new DBConnection($this->config);
-        return $db->run($sql, ['naam' => $naam])->fetch();
+        $placeholders = ['naam' => $naam];
+        return $this->read($sql, $placeholders, false);
     }
 
     public function addUser(string $naam, string $paswoord): false|string
     {
         // Add single row
         $sql = "insert into gebruikers (gebruikersnaam, wachtwoord) values (:naam, :paswoord)";
-        $db = new DBConnection($this->config);
-        $db->run($sql, ['naam' => $naam, 'paswoord' => $paswoord]);
-        return $db->pdo->lastInsertId(); // return last inserted id
+        $placeholders = ['naam' => $naam, 'paswoord' => $paswoord];
+        return $this->create($sql, $placeholders); // return last inserted id
     }
 }

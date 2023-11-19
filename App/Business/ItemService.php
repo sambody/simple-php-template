@@ -18,7 +18,7 @@ class ItemService
 
     public function getAll(): ?array
     {
-        $resultSet = $this->itemDAO->getAll();
+        $resultSet = $this->itemDAO->getAllItems();
 
         if (!$resultSet) {
             return null;
@@ -34,7 +34,7 @@ class ItemService
 
     public function get(int $id): ?Item
     {
-        $result = $this->itemDAO->get($id);
+        $result = $this->itemDAO->getItem($id);
 
         if (!$result) {
             return null;
@@ -43,20 +43,20 @@ class ItemService
         return new Item((string) $result['titel']);
     }
 
-    public function add(string $titel): ?string
+    public function add(string $titel): ?bool
     {
-        $result = $this->itemDAO->add($titel);
+        $result = $this->itemDAO->addItem($titel);
 
         if (!$result) {
             return null;
         }
 
-        return $result; // return last inserted id
+        return true;
     }
 
     public function remove(int $id): ?bool
     {
-        $result = $this->itemDAO->remove($id);
+        $result = $this->itemDAO->removeItem($id);
 
         if (!$result) {
             return null;
@@ -67,7 +67,7 @@ class ItemService
 
     public function update(int $id, string $titel): ?bool
     {
-        $result = $this->itemDAO->update($id, $titel);
+        $result = $this->itemDAO->updateItem($id, $titel);
 
         if (!$result) {
             return null;

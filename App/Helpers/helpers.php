@@ -26,7 +26,7 @@ function dump($value)
     echo '</pre>';
 }
 
-function writeToLog(string $message) // Or use custom log system
+function writeToLog(string $message): void // Or use custom log system
 {
     // Write to apache log (or php log if set in php.ini)
     date_default_timezone_set('Europe/Brussels');

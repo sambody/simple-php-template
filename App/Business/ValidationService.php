@@ -9,7 +9,7 @@ class ValidationService // or Validate ?
     /*
      * Use: ValidationService::string('string')
      * */
-    public static function string($value, $minimumChars = 1, $maximumChars = INF)
+    public static function string($value, $minimumChars = 1, $maximumChars = INF): bool
     {
         $value = trim($value);
 
