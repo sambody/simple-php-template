@@ -10,21 +10,14 @@ use PDOStatement;
 class DBConnection
 {
     public ?PDO $pdo; // made public to access it with lastInsertId
+    private array $config;
 
     public function __construct(array $config, string $username = 'root', string $password = '', array $options = [])
     {
+        $this->config = require('config.php');
         // Add array elements to string:
-        $dsn = vsprintf('mysql:host=%s;port=%d;dbname=%s;charset=%s', $config);
-        // Alternative solutions:
-        // $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
-        // $dsn = 'mysql:' . http_build_query($config, '', ';');
-        $defaultOptions = [
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ];
-        // Overwrite default values for same key:
-        $options = array_replace($defaultOptions, $options);
-        $this->pdo = new PDO($dsn, $username, $password, $options);
+        $dsn = vsprintf('mysql:host=%s;port=%d;dbname=%s;charset=%s', $this->config['DBConnection']);
+        $this->pdo = new PDO($dsn, $this->config['DBUsername'], $this->config['DBPassword'], $this->config['DBOptions']);
     }
 
     public function run(string $sql, array $params = null): bool|PDOStatement

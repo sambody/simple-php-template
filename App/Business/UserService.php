@@ -23,7 +23,7 @@ class UserService
         return true;
     }
 
-    public function isCorrectPassword(string $naam, string $paswoord): bool
+    public function validateUserPassword(string $naam, string $paswoord): bool
     {
         $user = $this->usersDAO->getUserByName($naam);
         if ($user) {

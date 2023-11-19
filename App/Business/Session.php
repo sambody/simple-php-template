@@ -11,7 +11,7 @@ class Session
         }
     }
 
-    private static function get(string $key): ?string
+    public function get(string $key): ?string
     {
         self::start();
         if (self::has($key)){
@@ -20,13 +20,13 @@ class Session
         return null;
     }
 
-    private static function set(string $key, $value): void
+    public function set(string $key, $value): void
     {
         self::start();
         $_SESSION[$key] = $value;
     }
 
-//    private static function setAll(array $params): void
+//    public function setAll(array $params): void
 //    {
 //        self::start();
 //        foreach ($params as $key => $value) {
@@ -34,12 +34,12 @@ class Session
 //        }
 //    }
 
-    private static function has(string $key): bool
+    public function has(string $key): bool
     {
         return array_key_exists($key, $_SESSION);
     }
 
-    public static function remove(string $key)
+    public function remove(string $key): void
     {
         self::start();
         if (self::has($key)){
@@ -48,20 +48,24 @@ class Session
     }
 
     // destroy, clear, close the session
-    private static function clear(): void
+    public function clear(): void
     {
         self::start();
         $_SESSION = null;
         session_destroy();
     }
 
-    private static function setLoggedIn()
+    public function setLoggedIn($destinationURL = null): void
     {
         self::start();
-        $_SESSION['loggedin'] = '1';
+        $this->set('loggedin', '1');
+        if ($destinationURL){
+            header('Location: ' . $destinationURL);
+            exit(0);
+        }
     }
 
-    private static function checkLoggedIn(string $redirectURL = 'login.php'): void
+    public function checkLoggedIn(string $redirectURL = 'login.php'): void
     {
         self::start();
         if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== '1'){
@@ -70,10 +74,14 @@ class Session
         }
     }
 
-    private static function setLoggedOut()
+    public function setLoggedOut($destinationURL): void
     {
         self::start();
         self::clear();
+        if ($destinationURL){
+            header('Location: ' . $destinationURL);
+            exit(0);
+        }
     }
 
 }
