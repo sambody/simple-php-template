@@ -6,6 +6,7 @@ spl_autoload_register();
 
 use App\Business\Session;
 use App\Business\UserService;
+use App\Entities\User;
 
 $error = '';
 
@@ -20,15 +21,16 @@ $session = new Session();
 if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'login') {
     // login attempt
     if (isset($_POST['naam']) || isset($_POST['paswoord'])) {
-        $naam = $_POST['naam']; // only set if they exist, otherwise error
+        $email = $_POST['email']; // only set if they exist, otherwise error
         $paswoord = $_POST['paswoord'];
         $userService = new UserService();
 
 
-        if (!$userService->validateUserPassword($naam, $paswoord)) {
-            $error = 'Naam of paswoord is niet correct';
+        if (!$userService->validateUserPassword($email, $paswoord)) {
+            $error = 'Email of paswoord is niet correct';
         } else {
-            $session->setLoggedIn('index.php');
+            $userData = ['email' => $email];
+            $session->login($userData, 'index.php');
         }
 
     } else {
@@ -37,7 +39,7 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'login') {
 }
 
 if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'logout') {
-    $session->setLoggedOut('index.php');
+    $session->logout('index.php');
 }
 
 include('App/Presentation/login-form.php');

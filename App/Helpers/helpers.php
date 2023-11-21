@@ -6,6 +6,11 @@ function basePath(string $path){
     return __DIR__ . '/../' . $path;
 }
 
+//function redirect($destination) {
+//    header('Location: ' . $destination);
+//    exit(0);
+//}
+
 // Debug helper functions
 // To use: either require the file or add file to composer autoload config file.
 

@@ -4,7 +4,13 @@ declare(strict_types=1);
 
 namespace App\Business;
 
-class ValidationService // or Validate ?
+// Example of use:
+//$errors = [];
+//if (!Validator::email($email)){
+//    $errors['email'] = 'Please provide a valid email address.'
+//}
+
+class FormValidator
 {
     /*
      * Use: ValidationService::string('string')

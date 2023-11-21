@@ -7,12 +7,12 @@ namespace App\Entities;
 class User
 {
     private string $naam;
-    private string $paswoord;
+    private string $email;
 
-    public function __construct(string $naam, string $paswoord)
+    public function __construct(string $naam, string $email)
     {
         $this->naam = $naam;
-        $this->paswoord = $paswoord;
+        $this->email = $email;
     }
 
     public function getName(): string
@@ -20,9 +20,9 @@ class User
         return $this->naam;
     }
 
-    public function getPassword(): string
+    public function getEmail(): string
     {
-        return $this->paswoord;
+        return $this->email;
     }
 
     public function setName(string $naam): void

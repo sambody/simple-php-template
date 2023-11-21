@@ -2,7 +2,7 @@
 declare(strict_types=1);
 spl_autoload_register();
 
-require 'Helpers/helpers.php';
+require 'App/Helpers/helpers.php';
 
 
 

@@ -12,6 +12,8 @@ use App\Business\ItemService;
 
 require_once __DIR__ . '/App/Helpers/helpers.php';
 
+//$user = (!empty($_SESSION['user'])) ? $_SESSION['user'] : false;
+
 
 
 
