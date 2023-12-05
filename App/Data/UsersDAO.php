@@ -9,23 +9,52 @@ class UsersDAO extends AbstractDBHandler
     public function getAllUsers(): bool|array
     {
         // Get all rows
-        $sql = "select * from gebruikers order by id";
+        $sql = "select * from Users order by id";
         return $this->read($sql);
     }
 
-    public function getUserByName(string $naam): bool|array
+    public function getUserById(int $id): bool|array
     {
         // Get single row
-        $sql = "select gebruikersnaam, wachtwoord from gebruikers where gebruikersnaam = :naam";
-        $placeholders = ['naam' => $naam];
+        $sql = "select g.id, voornaam, achternaam, email, straat, huisnummer, p.postcode as postcode, p.plaats as plaats, telefoon, wachtwoord, opmerking, promotieGeldig
+            from Users as g
+            inner join PizzaLeverbarePlaatsen as p 
+            on g.id = p.id 
+            where g.id = :id";
+        $placeholders = ['id' => $id];
         return $this->read($sql, $placeholders, false);
     }
 
-    public function addUser(string $naam, string $paswoord): false|string
+    public function getUserByEmail(string $email): bool|array
+    {
+        // Get single row
+        $sql = "select g.id, voornaam, achternaam, email, straat, huisnummer, p.postcode as postcode, p.plaats as plaats, telefoon, wachtwoord, opmerking, promotieGeldig
+            from Users as g
+            inner join PizzaLeverbarePlaatsen as p 
+            on g.id = p.id 
+            where email = :email";
+        $placeholders = ['email' => $email];
+        return $this->read($sql, $placeholders, false);
+    }
+
+    public function addUser(string $voornaam, string $achternaam, string $email, string $straat, int $huisnummer, int $plaatsId, string $telefoon, string $wachtwoord, string $opmerking = '', int $promotieGeldig = 0): bool|int
     {
         // Add single row
-        $sql = "insert into gebruikers (gebruikersnaam, wachtwoord) values (:naam, :paswoord)";
-        $placeholders = ['naam' => $naam, 'paswoord' => $paswoord];
+        $sql = "insert into Users (voornaam, achternaam, email, straat, huisnummer, plaatsId, telefoon, wachtwoord, opmerking, promotieGeldig) 
+            values (:voornaam, :achternaam, :email, :straat, :huisnummer, :plaatsId, :telefoon, :wachtwoord, :opmerking, :promotieGeldig)";
+        $placeholders = [
+            'voornaam' => $voornaam,
+            'achternaam' => $achternaam,
+            'email' => $email,
+            'straat' => $straat,
+            'huisnummer' => $huisnummer,
+            'plaatsId' => $plaatsId,
+            'telefoon' => $telefoon,
+            'wachtwoord' => password_hash($wachtwoord, PASSWORD_DEFAULT),
+            'opmerking' => $opmerking,
+            'promotieGeldig' => $promotieGeldig
+        ]
+        ;
         return $this->create($sql, $placeholders); // return last inserted id
     }
 }

@@ -46,11 +46,11 @@ abstract class AbstractDBHandler
         self::connect();
         $statement = $this->pdo->prepare($sql);
         $statement->execute($bindings);
-        // $id = $this->pdo->lastInsertId();
+        $id = (int) $this->pdo->lastInsertId();
         $affected = $statement->rowCount();
         self::disconnect();
 
-        return $affected === 1;
+        return ($affected === 1) ? $id : false;
     }
 
     protected function update(string $sql, array $bindings = []): int

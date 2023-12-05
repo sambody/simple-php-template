@@ -6,14 +6,21 @@ namespace App\Entities;
 
 class User
 {
+    // Generate properties: (1) private props (2) generate Constructor (3) getter/setters
     private string $naam;
+
     private string $paswoord;
 
+    /**
+     * @param string $naam
+     * @param string $paswoord
+     */
     public function __construct(string $naam, string $paswoord)
     {
         $this->naam = $naam;
         $this->paswoord = $paswoord;
     }
+
 
     public function getName(): string
     {
