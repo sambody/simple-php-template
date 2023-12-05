@@ -1,19 +1,31 @@
-/* Web fonts come here */
+/*
+==============================================
+ WEB FONTS
+==============================================
+*/
 
-/* Shared CSS variables, defaults */
+/*
+==============================================
+ CSS VARIABLES
+==============================================
+*/
 :root {
     --font-family: Trebuchet, Arial, Helvetica, sans-serif;
     --font-family-special: var(--font-family); /* For headings etc */
-    --font-size: 14px;
+    --font-size: 16px;
     --color: black;
 
+    --heading-font-family: var(--font-family-special);
+    --heading-color: var(--color);
+
     --primary-color: darkred;
-    --primary-color-light: #a12424;
+    --primary-color-hue: 0;
+    --primary-color-saturation: 100%;
+    --primary-color-lightness: 55%;
+    --primary-color-light: #a12424; /* use HSL from color? */
     --primary-color-dark: #700101;
 
     --secundary-color: orange;
-
-    --border-color: grey;
 
     --button-color: white;
     --button-background-color: var(--primary-color);
@@ -27,12 +39,11 @@
     --link-background-color-hover: transparent;
     --link-text-decoration-hover: underline;
 
-    --heading-font-family: var(--font-family-special);
-    --heading-color: var(--color);
-
+    --border-color: grey;
     --radius: 4px;
     --box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
     --transition: 0.15s all;
+    --column-gap: 20px;
 }
 
 /*
@@ -43,6 +54,7 @@
 html {
     box-sizing: border-box;
     height: 100%;
+    /*height: 100vh;*/
     padding: 0;
 }
 *,
@@ -60,48 +72,55 @@ body {
 }
 
 /* Shared horizontal page sections */
-.page-section {
-    display: flex;
-    justify-content: center;
-}
-.page-wrap-header {
-    border-top: 8px solid var(--primary-color);
-}
 .page-section > .container {
-    max-width: 980px;
     padding-left: 20px;
     padding-right: 20px;
 }
 
 /* Content layout */
 
-.page-wrap-content {
+.page-section-content {
     background: #ececec;
 }
-.page-section-content {
+.page-section-content > .container {
     padding-top: 30px;
     padding-bottom: 50px;
-    display: grid;
-    grid-template-columns: 70% 27%;
-    justify-content: space-between;
-    /*gap: 20px;*/
-}
-.content-main {
-    grid-column: 1 / span 1;
-}
-.content-sub {
-    grid-column: 2 / span 1;
 }
 
-.content-two-cols {
-    display: grid;
-    grid-template-columns: repeat(2, 48%);
-    justify-content: space-between;
-}
+/* On desktop */
+@media (min-width: 37.5em) {
+    .page-section {
+        display: flex;
+        justify-content: center;
+        outline: 1px solid green;
+    }
+    .page-section > .container {
+        width: 980px;
+        outline: 1px solid red;
+    }
+    .page-section-content > .container {
+        display: grid;
+        grid-template-columns: 70% 27%;
+        justify-content: space-between;
+        /*gap: 20px;*/
+    }
+    .content-main {
+        grid-column: 1 / span 1;
+    }
+    .content-sub {
+        grid-column: 2 / span 1;
+    }
 
-/* body class generated from page title - not a good idea...*/
-.content-main.content-full-width {
-    grid-column: 1 / span 2;
+    .content-two-cols {
+        display: grid;
+        grid-template-columns: repeat(2, 48%);
+        justify-content: space-between;
+    }
+
+    .content-main.content-full-width {
+        grid-column: 1 / span 2;
+    }
+
 }
 
 /*
@@ -109,20 +128,27 @@ body {
  FORM styles, shared
 ==============================================
 */
-label, input, select, textarea {
-    font-size: 14px;
-    line-height: 1.4;
-}
-
 form {
     margin-bottom: 0;
     overflow: visible;
 }
 
-form:after {
+form:after {    /* clearing any floats */
     content: "";
     display: table;
     clear: both;
+}
+
+/* ---------------- Form fonts
+*/
+label,
+.label,
+input,
+select,
+textarea {
+    font-size: var(--font-size);
+    color: var(--color);
+    line-height: 1.4;
 }
 
 input {
@@ -154,14 +180,7 @@ textarea {
     background: #fff;
     border: 1px solid #dadada;
     border-radius: 5px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    font-family: Verdana, sans-serif;
-    font-size: 14px;
-    color: #515151;
-    line-height: 1.2;
-    /* for IE; or 34px */
+    width: 400px;
 }
 
 input[type="email"]:focus,
@@ -184,21 +203,18 @@ input[type="color"]:focus,
 select:focus,
 textarea:focus {
     background: #fff;
-    border-color: #777777;
+    border-color: #1c1c1c;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.2);
 }
 
 textarea {
+    /*display: block;*/
     resize: vertical;
 }
 
 textarea[rows] {
     height: auto;
 }
-
-select {
-    border-radius: 0;
-}
-
 
 /* input icons */
 /*input.icon-checked,*/
@@ -219,6 +235,8 @@ select {
 /*  background-image: url(../img/forms/form-plus.png);*/
 /*}*/
 
+
+
 /* Placeholder in input fields (keep as separate rules)
 	*/
 /*::-webkit-input-placeholder {*/
@@ -237,11 +255,33 @@ select {
 /*  font-style: normal;*/
 /*}*/
 
+
+
 /* Select/option dropdowns
-	*/
+*/
+select {
+    border-radius: 0;
+}
+
 select,
 input[type="file"] {
     height: auto;
+}
+
+.input[readonly] {
+  border-style: dotted;
+  cursor: not-allowed;
+  color: #777;
+}
+
+.input[disabled] {
+  border-color: #ccc;
+  background-color: #eee;
+  cursor: not-allowed;
+}
+
+.input[invalid]{
+    box-shadow: 0 0 0 3px rgba(252, 222, 75, 0.2);
 }
 
 /* ---------------- Buttons - default
@@ -327,31 +367,15 @@ input[type="checkbox"] {
     margin-bottom: 12px;
 }
 
-/* ---------------- Form layout - in column grid by default
+/* ---------------- Form layout
 */
 form {
     margin-bottom: 0;
     overflow: visible;
 }
 
-form:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-form ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-form ul li {
-    margin: 0 0 2px 0;
-    padding: 0 0 0 0;
-    background: none;
-    list-style: none;
-    width: 100%;
+.form-item {
+    margin-bottom: 5px;
 }
 
 form ul li:after {
@@ -382,8 +406,6 @@ h3.legend {
     padding: 15px 0;
     font-size: 1.4em;
     font-family: var(--heading-font-family);
-    color: var(--heading-color);
-    /* color for IE */
     font-weight: bold;
     font-style: normal;
     text-transform: none;
@@ -393,26 +415,17 @@ label,
 div.label {
     display: block;
     vertical-align: top;
-    margin-bottom: 0px;
+    margin-bottom: 2px;
     padding-right: 10px;
-    font-size: 14px;
-    font-weight: 400;
     padding-bottom: 3px;
 }
-label,
-div.label {
-    display: table-cell; /* Todo: check or redo layout */
-}
-
 
 input {
     margin-bottom: 15px;
 }
 
 @media (min-width: 37.5em) {
-    input {
-        display: table-cell;
-    }
+
 }
 
 .wrap-inputs {
@@ -420,9 +433,7 @@ input {
 }
 
 @media (min-width: 37.5em) {
-    .wrap-inputs {
-        display: table-cell;
-    }
+
 }
 
 .checkbox,
@@ -439,12 +450,10 @@ input {
 .checkbox div.label,
 .radio label,
 .radio div.label {
-    display: inline-block !important;
+    display: inline-block;
     width: auto;
     padding-right: 10px;
     padding-top: 0;
-    font-size: inherit;
-    font-weight: normal;
 }
 
 .wrap-inputs.inline .checkbox,
@@ -461,7 +470,7 @@ input {
     text-align: right;
 }
 
-/* Form layout: stacked elements */
+/* Form layout: stacked elements by default, on mobile */
 .form-layout-stacked ul li {
     display: block;
 }
@@ -496,7 +505,7 @@ input {
 }
 
 /* Form layout: inline, all on one line
-	*/
+*/
 .form-layout-inline input[type="email"],
 .form-layout-inline input[type="image"],
 .form-layout-inline input[type="password"],
@@ -513,7 +522,6 @@ input {
 .form-layout-inline input[type="month"],
 .form-layout-inline input[type="week"],
 .form-layout-inline input[type="color"] {
-    float: left;
     margin-right: 3px;
 }
 
@@ -869,7 +877,9 @@ thead:first-child tr td {
 ==============================================
 */
 .page-section-header {
-    position: relative;
+    border-top: 8px solid var(--primary-color);
+}
+.page-section-header > .container {
     height: 140px;
     display: flex;
     justify-content: left;
@@ -879,11 +889,6 @@ thead:first-child tr td {
 
 /* ---------------- Site logo
 */
-
-.site-logo {
-
-}
-
 .site-logo a {
   display: block;
 }
@@ -904,6 +909,7 @@ thead:first-child tr td {
 
 /* ---------------- Main navigation
 */
+/* Todo: add mobile menu with toggle */
 .wrap-nav-main {
     /*display: none;*/
 }
@@ -911,29 +917,25 @@ thead:first-child tr td {
 .nav-main {
     margin: 0;
     padding: 0;
-    clear: both;
     font-size: 16px;
     line-height: 1.4;
 }
-
-.nav-main:after {
-    content: "";
-    display: table;
-    clear: both;
+.nav-main ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 6px;
 }
 
-.nav-main > li {
-    float: left;
-    position: relative;
+.nav-main li {
     margin: 0 5px 0 0;
     padding: 0;
-    list-style-type: none;
+    list-style: none;
     background: none;
 }
 
-.nav-main > li > a {
-    float: left;
-    width: auto;
+.nav-main a {
+    display: inline-block;
     margin: 0;
     padding: 7px 10px;
     background: transparent;

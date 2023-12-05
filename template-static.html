@@ -44,107 +44,115 @@
             <p>David n’a pas fait grand chose, il a juste créé un embryon de programme. Mais ce programme s’est développé lui-même. Comme l’ordinateur de David n’était pas suffisant, il a utilisé le réseau pour s’installer sur les autres ordinateurs. Il a grandi alors de manière exponentielle et le voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
 
 
-            <form class="form-layout-inline" name="form-contact" id="form-contact" method="post" action="#">
-
-                <ul>
-                    <li>
-                        <label for="contact-name">Name</label>
-                        <input type="text" name="contact-name" id="contact-name" placeholder="nom" required>
-                    </li>
-                    <li>
-                        <label for="contact-search">Search</label>
-                        <input type="search" name="contact-search" id="contact-search">
-                    </li>
-                    <li>
-                        <label for="contact-email">E-mail</label>
-                        <input type="email" name="contact-email" id="contact-email" required>
-                    </li>
-                    <li>
-                        <label for="login-pwd">Password</label>
-                        <input type="password" name="login-pwd" id="login-pwd">
+            <form class="form-layout-inline" id="form-contact" method="post" action="#">
+                <div class="form-item">
+                    <label for="login-user-name">User name</label>
+                    <input type="text" name="login-user-name" id="login-user-name" autocomplete="username" required>
+                </div>
+                <div class="form-item">
+                    <label for="login-password">Your password</label>
+                    <input type="text" name="login-password" id="login-password" autocomplete="current-password" required>
+                </div>
+                <div class="form-item">
+                    <label for="login-one-time-password">One time password/code</label>
+                    <input type="text" name="login-one-time-password" id="login-one-time-password" autocomplete="one-time-code" required>
+                </div>
+                <div class="form-item">
+                    <label for="first-name">First name</label>
+                    <input type="text" name="first-name" id="first-name" placeholder="first name" autocomplete="given-name" required>
+                </div>
+                <div class="form-item">
+                    <label for="last-name">Last name</label>
+                    <input type="text" name="last-name" id="last-name" placeholder="last name" autocomplete="family-name" disabled required>
+                </div>
+                <div class="form-item">
+                    <label for="contact-search">Search</label>
+                    <input type="search" name="contact-search" id="contact-search">
+                </div>
+                <div class="form-item">
+                    <label for="contact-email">E-mail</label>
+                    <input type="email" name="contact-email" id="contact-email" autocomplete="email" required>
+                </div>
+                <div class="form-item">
+                    <label for="login-pwd">Create a password</label>
+                    <input type="password" name="login-pwd" id="login-pwd">
+                    <div class="checkbox">
+                        <input type="checkbox" name="rememberme" value="rememberme" id="rememberme"><label
+                            for="rememberme">Remember me</label>
+                        <p class="recover-password"><a href="#">Forgot password?</a></p>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="label">Animal</div>
+                    <div class="wrap-inputs">
+                        <div class="radio">
+                            <input type="radio" name="animal" value="cat" id="cat"><label for="cat">Cat</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="animal" value="dog" id="dog"><label for="dog">Dog</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="animal" value="mouse" id="mouse" disabled><label for="mouse">Mouse
+                            (disabled)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="label">Fruit (inline)</div>
+                    <div class="wrap-inputs inline">
+                        <div class="radio">
+                            <input type="radio" name="fruit" value="apple" id="apple"><label
+                                for="apple">Apple</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="fruit" value="pear" id="pear"><label
+                                for="pear">Pear</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="label">Your choice</div>
+                    <div class="wrap-inputs">
                         <div class="checkbox">
-                            <input type="checkbox" name="rememberme" value="rememberme" id="rememberme"><label
-                                for="rememberme">Remember me</label>
-                            <p class="recover-password"><a href="#">Forgot password?</a></p>
+                            <input type="checkbox" name="checkies" value="one" id="one"><label for="one">One</label>
                         </div>
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <div class="label">Animal</div>
-                        <div class="wrap-inputs">
-                            <div class="radio">
-                                <input type="radio" name="animal" value="cat" id="cat"><label for="cat">Cat</label>
-                            </div>
-                            <div class="radio">
-                                <input type="radio" name="animal" value="dog" id="dog"><label for="dog">Dog</label>
-                            </div>
-                            <div class="radio">
-                                <input type="radio" name="animal" value="mouse" id="mouse" disabled><label for="mouse">Mouse
-                                (disabled)</label>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="label">Fruit (inline)</div>
-                        <div class="wrap-inputs inline">
-                            <div class="radio">
-                                <input type="radio" name="fruit" value="apple" id="apple"><label
-                                    for="apple">Apple</label>
-                            </div>
-                            <div class="radio">
-                                <input type="radio" name="fruit" value="pear" id="pear"><label
-                                    for="pear">Pear</label>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="label">Your choice</div>
-                        <div class="wrap-inputs">
-                            <div class="checkbox">
-                                <input type="checkbox" name="checkies" value="one" id="one"><label for="one">One</label>
-                            </div>
-                            <div class="checkbox">
-                                <input type="checkbox" name="checkies" value="two" id="two"><label
-                                    for="two">Two</label>
-                            </div>
-                            <div class="checkbox">
-                                <input type="checkbox" name="checkies" value="three" id="three" disabled><label
-                                    for="three">Three (disabled)</label>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
                         <div class="checkbox">
-                            <input type="checkbox" name="acceptme" value="acceptme" id="acceptme">
-                            <div class="label">Yes, I read the <a href="#">document</a> et I accept it.</div>
+                            <input type="checkbox" name="checkies" value="two" id="two"><label
+                                for="two">Two</label>
                         </div>
-                    </li>
-                    <li>
-                        <label for="myselect">Choose</label>
-                        <select class="myselect" name="myselect" id="myselect">
-                            <option selected disabled>Number one (disabled)</option>
-                            <option value="a">Number two</option>
-                            <option value="b">Number three</option>
-                            <option value="c">Number four</option>
-                            <optgroup label="A group">
-                                <option value="d">Number five</option>
-                                <option value="e">Number six</option>
-                            </optgroup>
-                        </select>
-                    </li>
-                    <li>
-                        <label for="contact-msg">Your message</label>
-                        <textarea name="contact-msg" id="contact-msg" cols="30" rows="10" required></textarea>
-                    </li>
-
-                    <li class="wrap-buttons">
-                        <input type="submit" value="Envoyer">
-                    </li>
-                </ul>
-
-
+                        <div class="checkbox">
+                            <input type="checkbox" name="checkies" value="three" id="three" disabled><label
+                                for="three">Three (disabled)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="checkbox">
+                        <input type="checkbox" name="acceptme" value="acceptme" id="acceptme">
+                        <div class="label">Yes, I have read the <a href="#">document</a> et I accept it.</div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="myselect">Choose</label>
+                    <select class="myselect" name="myselect" id="myselect">
+                        <option value="" selected disabled>-- Please select an option --</option>
+                        <option value="a">Number one</option>
+                        <option value="a">Number two</option>
+                        <option value="b">Number three</option>
+                        <option value="c">Number four</option>
+                        <optgroup label="A group">
+                            <option value="d">Number five</option>
+                            <option value="e">Number six</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="contact-msg">Your message</label>
+                    <textarea name="contact-msg" id="contact-msg" cols="30" rows="10" required></textarea>
+                </div>
+                <div class="form-item form-item-buttons">
+                    <input type="submit" value="Envoyer">
+                </div>
             </form>
 
 
