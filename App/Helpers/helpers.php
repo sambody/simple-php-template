@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-function basePath(string $path){
-    return __DIR__ . '/../' . $path;
-}
+//function basePath(string $path){
+//    return __DIR__ . '/../' . $path;
+//}
+
+// Todo: rename this file to debug.php? Or add other helpers?
 
 //function redirect($destination) {
 //    header('Location: ' . $destination);
@@ -31,9 +33,9 @@ function dump($value)
     echo '</pre>';
 }
 
-function writeToLog(string $message): void // Or use custom log system
-{
-    // Write to apache log (or php log if set in php.ini)
-    date_default_timezone_set('Europe/Brussels');
-    error_log($message);
-}
+//function writeToLog(string $message): void // Or use custom log system
+//{
+//    // Write to apache log (or php log if set in php.ini)
+//    date_default_timezone_set('Europe/Brussels');
+//    error_log($message);
+//}

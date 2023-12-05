@@ -6,27 +6,7 @@ namespace App\Entities;
 
 class User
 {
-    private string $naam;
-    private string $email;
+    // Generate properties: (1) private props (2) generate Constructor (3) getter/setters
 
-    public function __construct(string $naam, string $email)
-    {
-        $this->naam = $naam;
-        $this->email = $email;
-    }
 
-    public function getName(): string
-    {
-        return $this->naam;
-    }
-
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    public function setName(string $naam): void
-    {
-        $this->naam = $naam;
-    }
 }

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Template</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<header class="page-section page-section-header">
+
+    <div class="container">
+
+        <div class="site-logo"><a href="/" title="Home"><img src="images/temp-logo.png" alt="Logo"></a></div>
+
+        <nav class="nav-main">
+            <ul role="menu">
+                <li role="menuitem"><a href="#" title="">Home</a></li>
+                <li role="menuitem"><a href="#" title="">Page one</a></li>
+                <li role="menuitem"><a href="#" title="">Page two</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+<div class="page-section page-section-content">
+
+    <div class="container">
+
+        <div class="content-main" role="main">
+
+            <h1>Menu (static HTML template with live reload/debug before integration)</h1>
+
+            <p class="hide-on-mobile">Hide on mobile, show on desktop</p>
+
+            <p class="hide-on-desktop"><em>Hide on desktop, show on mobile</em></p>
+
+            <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren 60 populair geworden met de introductie van Letraset vellen met Lorem Ipsum passages en meer recentelijk door desktop publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten.</p>
+
+            <p>David n’a pas fait grand chose, il a juste créé un embryon de programme. Mais ce programme s’est développé lui-même. Comme l’ordinateur de David n’était pas suffisant, il a utilisé le réseau pour s’installer sur les autres ordinateurs. Il a grandi alors de manière exponentielle et le voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
+
+
+            <form class="form-layout-inline" name="form-contact" id="form-contact" method="post" action="#">
+
+                <ul>
+                    <li>
+                        <label for="contact-name">Name</label>
+                        <input type="text" name="contact-name" id="contact-name" placeholder="nom" required>
+                    </li>
+                    <li>
+                        <label for="contact-search">Search</label>
+                        <input type="search" name="contact-search" id="contact-search">
+                    </li>
+                    <li>
+                        <label for="contact-email">E-mail</label>
+                        <input type="email" name="contact-email" id="contact-email" required>
+                    </li>
+                    <li>
+                        <label for="login-pwd">Password</label>
+                        <input type="password" name="login-pwd" id="login-pwd">
+                        <div class="checkbox">
+                            <input type="checkbox" name="rememberme" value="rememberme" id="rememberme"><label
+                                for="rememberme">Remember me</label>
+                            <p class="recover-password"><a href="#">Forgot password?</a></p>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <div class="label">Animal</div>
+                        <div class="wrap-inputs">
+                            <div class="radio">
+                                <input type="radio" name="animal" value="cat" id="cat"><label for="cat">Cat</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="animal" value="dog" id="dog"><label for="dog">Dog</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="animal" value="mouse" id="mouse" disabled><label for="mouse">Mouse
+                                (disabled)</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label">Fruit (inline)</div>
+                        <div class="wrap-inputs inline">
+                            <div class="radio">
+                                <input type="radio" name="fruit" value="apple" id="apple"><label
+                                    for="apple">Apple</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="fruit" value="pear" id="pear"><label
+                                    for="pear">Pear</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label">Your choice</div>
+                        <div class="wrap-inputs">
+                            <div class="checkbox">
+                                <input type="checkbox" name="checkies" value="one" id="one"><label for="one">One</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" name="checkies" value="two" id="two"><label
+                                    for="two">Two</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" name="checkies" value="three" id="three" disabled><label
+                                    for="three">Three (disabled)</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox">
+                            <input type="checkbox" name="acceptme" value="acceptme" id="acceptme">
+                            <div class="label">Yes, I read the <a href="#">document</a> et I accept it.</div>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="myselect">Choose</label>
+                        <select class="myselect" name="myselect" id="myselect">
+                            <option selected disabled>Number one (disabled)</option>
+                            <option value="a">Number two</option>
+                            <option value="b">Number three</option>
+                            <option value="c">Number four</option>
+                            <optgroup label="A group">
+                                <option value="d">Number five</option>
+                                <option value="e">Number six</option>
+                            </optgroup>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="contact-msg">Your message</label>
+                        <textarea name="contact-msg" id="contact-msg" cols="30" rows="10" required></textarea>
+                    </li>
+
+                    <li class="wrap-buttons">
+                        <input type="submit" value="Envoyer">
+                    </li>
+                </ul>
+
+
+            </form>
+
+
+        </div>
+
+        <div class="content-sub">
+
+            <aside class="widget">
+                <p>A widget or sidebar component</p>
+            </aside>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<footer class="page-section page-section-footer">
+
+    <div class="container">
+
+        <p class="footer-legal">© SiteName in footer</p>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>

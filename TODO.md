@@ -1,4 +1,7 @@
 
+- Review PHP advanced eindoefening, use code
+- Add template CSS, html
+
 # Todo NewProject
 
 =========== DONE ===========

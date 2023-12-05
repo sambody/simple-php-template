@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Entities\Log; // Todo: Entity with getType, getMessage methods
+// Todo: make entity Log with getType, getMessage methods
+use App\Entities\Log;
 
 class LogService
 {
