@@ -1,0 +1,1129 @@
+/*
+==============================================
+ WEB FONTS
+==============================================
+*/
+
+/*
+==============================================
+ CSS VARIABLES
+==============================================
+*/
+:root {
+    --container-max-width: 980px;
+    --row-gap: 30px;
+    --column-gap: 20px;
+
+    --font-family: Trebuchet, Arial, Helvetica, sans-serif;
+    --font-family-special: var(--font-family); /* For headings etc */
+    --font-size: 1.6rem;
+    --color: black;
+
+    --focus-color: black;
+    --focus-background-color: #ffff56;
+    --error-color: darkred;
+    --success-color: darkgreen;
+
+    --heading-font-family: var(--font-family-special);
+    --heading-color: var(--color);
+
+    --primary-color: darkred;
+    --primary-color-light: #ab1a1a;
+    --primary-color-dark: #6c0000;
+
+    --secundary-color: orange;
+
+    --link-color: var(--primary-color);
+    --link-background-color: transparent;
+    --link-text-decoration: none;
+    --link-color-hover: var(--primary-color);
+    --link-background-color-hover: transparent;
+    --link-text-decoration-hover: underline;
+
+    --input-field-border-color: #545454;
+    --input-field-border-radius: 3px;
+    --button-border-radius: 6px;
+    --button-color: white;
+    --button-background-color: var(--primary-color);
+    --button-color-hover: white;
+    --button-background-color-hover: var(--primary-color-light);
+
+    --border-color: grey;
+    --radius: 4px;
+    --box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+    --transition: 0.15s all;
+}
+
+/*
+==============================================
+ PAGE LAYOUT
+==============================================
+*/
+/*<editor-fold desc="Page layout">*/
+html {
+    box-sizing: border-box;
+    height: 100%;
+    /*height: 100vh;*/
+    padding: 0;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit; /* Universal box sizing with inheritance */
+    -webkit-tap-highlight-color: transparent; /* suppressing the tap highlight */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------- Page layout mobile first
+*/
+body {
+    min-height: 100%;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.page-section > .container {
+    padding-left: var(--column-gap);
+    padding-right: var(--column-gap);
+}
+
+.page-section-content {
+    background: #ececec;
+}
+
+.page-section-content > .container {
+    padding-top: 30px;
+    padding-bottom: 0;
+}
+
+.content-main,
+.content-sub {
+    padding-bottom: 30px;
+}
+
+/* ---------------- Page layout desktop
+*/
+@media (min-width: 600px) {
+    .page-section {
+        display: flex;
+        justify-content: center;
+        /*outline: 1px solid green;*/
+    }
+    .page-section > .container {
+        width: var(--container-max-width);
+        /*outline: 1px solid red;*/
+    }
+    .page-section-content > .container {
+        display: grid;
+        grid-template-columns: 7fr 3fr;
+        justify-content: space-between;
+        gap: var(--column-gap);
+    }
+    .content-main {
+        grid-column: 1 / span 1;
+    }
+    .content-sub {
+        grid-column: 2 / span 1;
+    }
+
+    .content-two-cols {
+        display: grid;
+        grid-template-columns: repeat(2, 48%);
+        justify-content: space-between;
+    }
+
+    .content-main.content-full-width {
+        grid-column: 1 / span 2;
+    }
+
+}
+/*</editor-fold>*/
+
+/*
+==============================================
+ CONTENT - typography, images, tables
+==============================================
+*/
+/*<editor-fold desc="Content">*/
+html {
+    font-size: 62.5%;
+    /* Now use rem (or em) for other font-sizes: 1rem = 10px (problem: small font with PHP errors...) */
+    /* rem are proportional to this root only; em are proportional to parent, so may cascade... */
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--color);
+}
+
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-size: var(--font-size);
+    line-height: 1.4;
+    font-weight: 400;
+}
+p:last-child, dd:last-child, li:last-child {
+    margin-bottom: 0;
+}
+
+p, dl, ul {
+    margin-top: 0;
+}
+
+ol p, ul p, ol ol, ul ul, label p, dt p, dd p, table p {
+    font-size: inherit; /* if using em */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.5em;
+
+    font-family: var(--heading-font-family);
+    font-weight: bold;
+    line-height: 1.25;
+    color: var(--heading-color);
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 1;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+h4, h5, h6 {
+    font-size: 14px;
+    font-weight: normal;
+    color: #1c1c1c;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child,
+p:first-child {
+    margin-top: 0;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------------- Links
+*/
+a {
+    color: var(--link-color);
+    text-decoration: var(--link-text-decoration);
+    background: var(--link-background-color);
+    transition: var(--transition);
+}
+
+a:active, a:focus, a:hover {
+    color: var(--link-color-hover);
+    text-decoration: var(--link-text-decoration-hover);
+    background: var(--link-background-color-hover);
+}
+
+/* ---------------- Text specials
+*/
+strong {
+    font-weight: bold;
+}
+em {
+    font-style: italic;
+}
+small {
+    font-size: 0.8em;
+}
+
+mark {
+    background: #FFFF7F;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* ---------------- Lists
+*/
+ol p, ul p {
+    font-size: inherit;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 22px;
+    padding-left: 0;
+}
+
+ul li {
+    margin-left: 0;
+    margin-bottom: 12px;
+    padding-left: 18px;
+}
+
+ul ul {
+    margin-bottom: 0;
+}
+
+ol {
+    margin-left: 0;
+}
+
+ol li {
+    margin-bottom: 12px;
+}
+
+/* Inline (horizontal) list
+*/
+.list-inline {
+    margin: 0 0 1em 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-inline:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.list-inline > li {
+    display: inline-block;
+    margin: 0 10px 20px 0;
+    padding: 0;
+    background: none;
+}
+
+.list-inline img {
+    display: block;
+}
+
+/* list with no bullets, but still vertical
+*/
+.list-no-bullets {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.list-no-bullets li {
+    margin-left: 0;
+    padding-left: 0;
+    background: none;
+}
+
+/* ---------------- Definition lists
+*/
+dt {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+dd {
+    margin-bottom: 10px;
+    margin-left: 0;
+}
+
+.dl-horizontal dt {
+    float: left;
+    clear: left;
+    overflow: hidden;
+    -moz-text-align-last: right;
+    text-align-last: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 150px;
+}
+
+.dl-horizontal dd {
+    margin-left: 170px;
+}
+
+/* ---------------- Images
+*/
+img,
+svg {
+    max-width: 100%;
+    /* responsive */
+    height: auto;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.left {
+    float: left;
+    margin: 0 15px 5px 0;
+}
+
+.right {
+    float: right;
+    margin: 0 0 5px 15px;
+}
+
+/* class on img */
+.center {
+    display: block;
+    margin: 22px auto 22px;
+    clear: both;
+}
+
+.center img {
+    /* class on img container */
+    display: block;
+    margin: 0 auto;
+}
+
+/* img on top of page content */
+p:first-child img.center,
+header + p img.center {
+    margin-top: 0;
+}
+
+a img {
+    transition: 0.15s all;
+}
+
+a:hover img {
+    opacity: 0.8;
+}
+
+/* ---------------- Horizontal rule
+*/
+hr {
+    clear: both;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 1em 0;
+    padding: 0;
+}
+
+/* ---------------- Tables
+*/
+table {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 6px 10px 7px 0;
+    border-top: 1px solid #D6D6D6;
+}
+
+th {
+    font-weight: bold;
+    vertical-align: top;
+    text-align: left;
+}
+
+thead:first-child tr th,
+thead:first-child tr td {
+    border-top: 0;
+}
+
+/* Wrap tables (or pre) elements in a div with this class */
+.overflow-container {
+    overflow-x: scroll;
+}
+/*</editor-fold>*/
+
+/*
+================================
+ MESSAGES - Errors and confirmations on top of page
+================================
+*/
+/*<editor-fold desc="Messages">*/
+.message {
+    background: #eeeeee;
+    color: black;
+    margin: 0 0 30px 0;
+    padding: 20px;
+    font-size: 16px;
+}
+.message h2, h3, h4, h5, h6, p, li {
+    color: inherit;
+}
+.message ul {
+    list-style: circle;
+    margin: 0 0 0 10px;
+}
+.message li {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.message-error {
+    background: #f6d5d5;
+    color: var(--error-color);
+}
+.message-success {
+    background: #d2e7d2;
+    color: var(--success-color);
+}
+/*</editor-fold>*/
+
+
+/*
+==============================================
+ FORM styles
+==============================================
+*/
+/* ---------------- Form fonts
+*/
+/*<editor-fold desc="Form fonts">*/
+form,
+input,
+select,
+textarea {
+    color: var(--color);
+    font-size: var(--font-size);
+    line-height: 1.4;
+}
+/*</editor-fold>*/
+
+/* ---------------- Input fields
+*/
+/*<editor-fold desc="Input fields">*/
+input {
+    margin: 0;
+}
+input[type="email"],
+input[type="file"],
+input[type="image"],
+input[type="password"],
+input[type="search"],
+input[type="text"],
+input[type="url"],
+input[type="tel"],
+input[type="range"],
+input[type="number"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="color"],
+select,
+textarea {
+    width: 100%;
+    padding: 5px 6px;
+    border: 1px solid var(--input-field-border-color);
+    border-radius: var(--input-field-border-radius);
+    background: #fff;
+}
+input.size-small {
+    width: 100px;
+}
+
+input[type="email"]:disabled,
+input[type="file"]:disabled,
+input[type="image"]:disabled,
+input[type="password"]:disabled,
+input[type="search"]:disabled,
+input[type="text"]:disabled,
+input[type="url"]:disabled,
+input[type="tel"]:disabled,
+input[type="range"]:disabled,
+input[type="number"]:disabled,
+input[type="time"]:disabled,
+input[type="datetime"]:disabled,
+input[type="datetime-local"]:disabled,
+input[type="date"]:disabled,
+input[type="month"]:disabled,
+input[type="week"]:disabled,
+input[type="color"]:disabled,
+select:disabled,
+textarea:disabled {
+    background: #e0e0e0;
+}
+
+input[type="email"]:focus,
+input[type="file"]:focus,
+input[type="image"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="number"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="color"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #1c1c1c;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+    background: #fff;
+}
+
+textarea {
+    /*display: block;*/
+    resize: vertical;
+}
+
+textarea[rows] {
+    height: auto;
+}
+
+/* input icons */
+/*input.icon-checked,*/
+/*input.icon-close,*/
+/*input.icon-plus {*/
+/*  background: no-repeat right 10px center;*/
+/*}*/
+
+/*input.icon-checked {*/
+/*  background-image: url(../img/forms/form-check.png);*/
+/*}*/
+
+/*input.icon-close {*/
+/*  background-image: url(../img/forms/form-close.png);*/
+/*}*/
+
+/*input.icon-plus {*/
+/*  background-image: url(../img/forms/form-plus.png);*/
+/*}*/
+
+
+/* Placeholder in input fields (keep as separate rules)
+	*/
+/*::-webkit-input-placeholder {*/
+/*  color: #515151;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*::-moz-placeholder {*/
+/*  color: #515151;*/
+/*  opacity: 1;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*:-ms-input-placeholder {*/
+/*  color: #515151;*/
+/*  font-style: normal;*/
+/*}*/
+
+
+/* Select/option dropdowns
+*/
+select {
+    border-radius: 0;
+}
+
+select,
+input[type="file"] {
+    height: auto;
+}
+
+.input[readonly] {
+    border-style: dotted;
+    cursor: not-allowed;
+
+    color: #777;
+}
+
+.input[disabled] {
+    border-color: #ccc;
+    cursor: not-allowed;
+    background-color: #eee;
+}
+
+.input[invalid] {
+    box-shadow: 0 0 0 3px rgba(255, 12, 83, 0.2);
+}
+/*</editor-fold>*/
+
+/* ---------------- Form buttons
+*/
+/*<editor-fold desc="Form buttons">*/
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+a.button {
+    box-sizing: border-box;
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 8px 25px 8px;
+    border-radius: var(--button-border-radius);
+    border: none;
+    transition: var(--transition);
+    background: var(--button-background-color);
+
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--button-color);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover,
+a.button:hover {
+    cursor: pointer;
+    background-color: var(--button-background-color-hover);
+
+    color: var(--button-color-hover);
+    text-decoration: none;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+button:active,
+.button:active {
+    background-color: #ff3300;
+    border-color: #ff3300;
+
+    color: white;
+}
+
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus,
+button:focus,
+.button:focus {
+    background: #ff3300;
+    border-color: #ff3300;
+    outline: 1px dotted black;
+    outline-offset: 2px;
+
+    color: white;
+}
+
+input[type="submit"]:disabled,
+input[type="reset"]:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled:hover,
+input[type="reset"]:disabled:hover,
+input[type="button"]:disabled:hover {
+    background: #c0c0c0;
+    color: #5b5b5b;
+    cursor: not-allowed;
+}
+/*</editor-fold>*/
+
+/* ---------------- Checkboxes and radios
+*/
+/*<editor-fold desc="checkboxes, radios">*/
+input[type="radio"],
+input[type="checkbox"] {
+    border-width: 0;
+    width: auto;
+    position: relative;
+    margin: 0 5px 0 0;
+    top: 1px;
+}
+/*</editor-fold>*/
+
+/* ---------------- Form inline messages
+*/
+/*<editor-fold desc="Form messages">*/
+.form-help {
+    color: #808080;
+    margin-top: 5px;
+}
+.form-error {
+    /*border: 1px solid var(--error-color);*/
+    padding: 5px 7px;
+    margin-top: 3px;
+    background: #f5dbdb;
+
+    color: var(--error-color);
+    font-size: var(--font-size);
+}
+/*</editor-fold>*/
+
+/* ---------------- Form layout
+*/
+/*<editor-fold desc="Form layout">*/
+form {
+    margin-bottom: 0;
+}
+
+form p {
+    margin: 0;
+}
+
+label,
+.label,
+.form-buttons {
+    display: block;
+    vertical-align: top;
+    margin-top: 20px;
+    /*margin-bottom: 2px;*/
+    /*padding-right: 10px;*/
+}
+
+.form-wrap-inputs {
+    padding-top: 5px;
+}
+
+.form-wrap-inputs label,
+.form-wrap-inputs .label {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.form-wrap-inputs label:last-child,
+.form-wrap-inputs .label:last-child {
+    margin-bottom: 0;
+}
+
+.wrap-checkbox,
+.wrap-radio {
+    margin-bottom: 5px;
+}
+.wrap-checkbox:last-child,
+.wrap-radio:last-child {
+    margin-bottom: 0;
+}
+
+.wrap-checkbox input,
+.wrap-radio input {
+    /*display: inline-block;*/
+}
+
+.wrap-checkbox label,
+.wrap-checkbox div.label,
+.wrap-radio label,
+.wrap-radio div.label {
+    display: inline-block;
+    width: auto;
+    padding-right: 10px;
+    padding-top: 0;
+    margin-right: 0;
+}
+
+.form-wrap-inputs.inline .label-checkbox,
+.form-wrap-inputs.inline .label-radio {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+
+
+/* Extra optional class "form-layout-columns" for layout in two columns on desktop
+ */
+@media (min-width: 600px) {
+
+    form.form-layout-columns {
+        display: grid;
+        grid-template-columns: 3fr 7fr; /* fr instead of % to use available space */
+        gap: 20px 15px; /* row gap, column gap*/
+    }
+
+    .form-layout-columns > label,
+    .form-layout-columns > .label {
+        margin-top: 0;
+        padding-top: 5px;
+        text-align: right; /* option */
+    }
+
+    .form-layout-columns .form-position-left {
+        /*grid-column: 1 / span 1;*/
+        grid-column-start: 1;
+    }
+
+    .form-layout-columns .form-position-right,
+    .form-layout-columns .form-error,
+    .form-layout-columns .form-description {
+        grid-column-start: 2;
+        margin-top: -18px;
+    }
+
+    .form-layout-columns .form-position-fullwidth {
+        grid-column: 1 / span 2;
+    }
+
+    .form-layout-columns .form-buttons {
+        grid-column-start: 2;
+        margin-top: 0;
+    }
+
+    .form-layout-columns .label-checkbox,
+    .form-layout-columns .label-radio,
+    .form-layout-columns .label.wrap-checkbox {
+        text-align: left; /* when using option */
+    }
+
+    form.form-layout-single-line {
+        display: flex;
+        align-content: center;
+    }
+
+}
+/*</editor-fold>*/
+
+/*
+================================
+ FORM - subscribe
+================================
+*/
+/*<editor-fold desc="Form Subscribe">*/
+.form-subscribe {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+.form-subscribe input[type="email"] {
+    border: none;
+    border-radius: 0;
+}
+.form-subscribe input[type="submit"] {
+    border-radius: 0;
+}
+/*</editor-fold>*/
+
+/*
+==============================================
+ SITE HEADER
+==============================================
+*/
+/*<editor-fold desc="Description">*/
+.page-section-header {
+    border-top: 8px solid var(--primary-color);
+}
+
+/* ---------------- Site logo
+*/
+.site-logo a {
+    display: block;
+}
+
+.site-logo a:hover {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.site-logo a img {
+    width: 40px;
+}
+
+.site-logo a:hover img {
+    opacity: 1;
+}
+
+
+/* ---------------- Main navigation
+*/
+.wrap-nav-main {
+    /*display: none;*/
+}
+
+.nav-main {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+.nav-main ul {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-main li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: none;
+}
+
+.nav-main a {
+    display: inline-block;
+    margin: 0;
+    padding: 7px 10px;
+    background: #ececec;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+/* current page */
+.nav-main .current > a {
+    background: #eaeaad;
+}
+
+/* hover */
+.nav-main a:active,
+.nav-main a:focus,
+.nav-main a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+@media (min-width: 600px) {
+    .page-section-header > .container {
+        height: 140px;
+        display: flex;
+        justify-content: left;
+        align-items: center; /* default is stretch */
+        gap: 40px;
+    }
+    .nav-main ul {
+        display: flex;
+        gap: 6px;
+    }
+}
+/*</editor-fold>*/
+
+/*
+==============================================
+ SIDEBAR
+==============================================
+*/
+
+
+/*
+==============================================
+ FOOTER
+==============================================
+*/
+/*<editor-fold desc="Site footer">*/
+.page-section-footer > .container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+/*</editor-fold>*/
+
+/*
+==============================================
+ HELPER CLASSES - grid, show/hide
+==============================================
+*/
+
+/*<editor-fold desc="Helper classes">*/
+/* ---------------- Simple grid, any number of columns
+*/
+.grid {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+.grid > * {
+    /*outline: 2px solid orange;*/
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+.grid > *:last-child {
+    /*outline: 2px solid orange;*/
+    padding-bottom: 0;
+}
+@media (min-width: 600px) {
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+        gap: var(--column-gap);
+    }
+    .grid-span-1 {
+        grid-column: span 1;
+    }
+    .grid-span-2 {
+        grid-column: span 2;
+    }
+    .grid-span-3 {
+        grid-column: span 3;
+    }
+    .grid-span-4 {
+        grid-column: span 4;
+    }
+    .grid-span-5 {
+        grid-column: span 5;
+    }
+    .grid-span-6 {
+        grid-column: span 6;
+    }
+    .grid-span-7 {
+        grid-column: span 7;
+    }
+    .grid-span-8 {
+        grid-column: span 8;
+    }
+    .grid-span-9 {
+        grid-column: span 9;
+    }
+    .grid-span-10 {
+        grid-column: span 10;
+    }
+    .grid-span-11 {
+        grid-column: span 11;
+    }
+    .grid-span-12,
+    .grid-span-full{
+        grid-column: span 12;
+    }
+
+}
+
+/* ---------------- Show / hide
+*/
+/* Visually hidden, shown only for screen readers or when focus received using tab */
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+/* Note: To hide non focusable elements from screen reader, use aria-hidden="true" attribute */
+
+/* other */
+.hide-on-mobile,
+.hide-on-tablet {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .hide-on-desktop {
+        display: none;
+    }
+    .hide-on-mobile {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hide-on-tablet {
+        display: block;
+    }
+}
+
+/* IOS specifics */
+@media screen and (max-width: 769px) {
+    /* Absolute measure here */
+    body {
+        /* Stop iPhone/iPad from scaling text */
+        -webkit-text-size-adjust: none;
+    }
+}
+/*</editor-fold>*/
+

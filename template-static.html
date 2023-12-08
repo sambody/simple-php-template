@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Template</title>
+    <title>TemplateStatic</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -17,7 +17,7 @@
 
         <nav class="nav-main">
             <ul role="menu">
-                <li role="menuitem"><a href="#" title="">Home</a></li>
+                <li role="menuitem" class="current"><a href="#" title="">Home</a></li>
                 <li role="menuitem"><a href="#" title="">Page one</a></li>
                 <li role="menuitem"><a href="#" title="">Page two</a></li>
             </ul>
@@ -27,134 +27,121 @@
 
 </header>
 
-<div class="page-section page-section-content">
+<section class="page-section page-section-content">
 
     <div class="container">
 
         <div class="content-main" role="main">
 
-            <h1>Menu (static HTML template with live reload/debug before integration)</h1>
+            <h1>PageTitle</h1>
 
-            <p class="hide-on-mobile">Hide on mobile, show on desktop</p>
-
-            <p class="hide-on-desktop"><em>Hide on desktop, show on mobile</em></p>
-
-            <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren 60 populair geworden met de introductie van Letraset vellen met Lorem Ipsum passages en meer recentelijk door desktop publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten.</p>
+            <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. </p>
 
             <p>David n’a pas fait grand chose, il a juste créé un embryon de programme. Mais ce programme s’est développé lui-même. Comme l’ordinateur de David n’était pas suffisant, il a utilisé le réseau pour s’installer sur les autres ordinateurs. Il a grandi alors de manière exponentielle et le voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
 
+            <hr>
 
-            <form class="form-layout-inline" id="form-contact" method="post" action="#">
-                <div class="form-item">
-                    <label for="login-user-name">User name</label>
-                    <input type="text" name="login-user-name" id="login-user-name" autocomplete="username" required>
+            <h2>A form</h2>
+
+            <form class="form-layout-columns" id="form-contact" method="post" action="#">
+                <label for="login-user-name">User name</label>
+                <input type="text" name="login-user-name" id="login-user-name" autocomplete="username" invalid required>
+                <div class="form-error">Error message</div>
+
+                <label for="login-password">Your password</label>
+                <input type="text" name="login-password" id="login-password" autocomplete="current-password" required>
+
+                <label for="login-one-time-password">One time password/code</label>
+                <input type="text" name="login-one-time-password" id="login-one-time-password" autocomplete="one-time-code" required>
+
+                <label for="first-name">First name</label>
+                <input type="text" name="first-name" id="first-name" placeholder="first name" autocomplete="given-name" required>
+
+                <label for="last-name">Last name (disabled)</label>
+                <input type="text" name="last-name" id="last-name" placeholder="last name" autocomplete="family-name" disabled required>
+
+                <label for="contact-search">Search</label>
+                <input type="search" name="contact-search" id="contact-search">
+
+                <label for="contact-email">E-mail</label>
+                <input type="email" name="contact-email" id="contact-email" autocomplete="email" required>
+
+                <label for="login-pwd">Create a password</label>
+                <input type="password" name="login-pwd" id="login-pwd" class="size-small">
+
+                <label class="label-checkbox form-description"><input type="checkbox" name="rememberme" value="rememberme" id="rememberme">Remember me</label>
+
+                <p class="recover-password form-description"><a href="#">Forgot password?</a></p>
+
+                <div class="label">Animal</div>
+                <div class="form-wrap-inputs" role="radiogroup">
+                    <label class="label-radio"><input type="radio" name="animal" value="cat" id="cat">Cat</label>
+                    <label class="label-radio"><input type="radio" name="animal" value="dog" id="dog">Dog</label>
+                    <label class="label-radio"><input type="radio" name="animal" value="mouse" id="mouse" disabled>Mouse
+                        (disabled)</label>
                 </div>
-                <div class="form-item">
-                    <label for="login-password">Your password</label>
-                    <input type="text" name="login-password" id="login-password" autocomplete="current-password" required>
+
+                <div class="label">Fruit (inline)</div>
+                <div class="form-wrap-inputs inline" role="radiogroup">
+                    <label class="label-radio"><input type="radio" name="fruit" value="apple" id="apple">Apple</label>
+                    <label class="label-radio"><input type="radio" name="fruit" value="pear" id="pear">Pear</label>
                 </div>
-                <div class="form-item">
-                    <label for="login-one-time-password">One time password/code</label>
-                    <input type="text" name="login-one-time-password" id="login-one-time-password" autocomplete="one-time-code" required>
+
+                <div class="label">Your choice among these three beautiful options</div>
+                <div class="form-wrap-inputs">
+                    <label class="label-checkbox"><input type="checkbox" name="checkies" value="one" id="one">One</label>
+                    <label class="label-checkbox"><input type="checkbox" name="checkies" value="two" id="two">Two</label>
+                    <label class="label-checkbox"><input type="checkbox" name="checkies" value="three" id="three" disabled>Three (disabled)</label>
                 </div>
-                <div class="form-item">
-                    <label for="first-name">First name</label>
-                    <input type="text" name="first-name" id="first-name" placeholder="first name" autocomplete="given-name" required>
+
+                <div class="label wrap-checkbox form-position-fullwidth">
+                    <input type="checkbox" name="acceptme" value="acceptme" id="acceptme">
+                    Yes, I have read the <a href="#">document</a> et I accept the whole document.
                 </div>
-                <div class="form-item">
-                    <label for="last-name">Last name</label>
-                    <input type="text" name="last-name" id="last-name" placeholder="last name" autocomplete="family-name" disabled required>
+
+                <div class="label wrap-checkbox form-position-right">
+                    <input type="checkbox" name="acceptterms" value="acceptterms" id="acceptterms">
+                    Yes, I have read the <a href="#">document</a> et I accept the whole document.
                 </div>
-                <div class="form-item">
-                    <label for="contact-search">Search</label>
-                    <input type="search" name="contact-search" id="contact-search">
-                </div>
-                <div class="form-item">
-                    <label for="contact-email">E-mail</label>
-                    <input type="email" name="contact-email" id="contact-email" autocomplete="email" required>
-                </div>
-                <div class="form-item">
-                    <label for="login-pwd">Create a password</label>
-                    <input type="password" name="login-pwd" id="login-pwd">
-                    <div class="checkbox">
-                        <input type="checkbox" name="rememberme" value="rememberme" id="rememberme"><label
-                            for="rememberme">Remember me</label>
-                        <p class="recover-password"><a href="#">Forgot password?</a></p>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <div class="label">Animal</div>
-                    <div class="wrap-inputs">
-                        <div class="radio">
-                            <input type="radio" name="animal" value="cat" id="cat"><label for="cat">Cat</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="animal" value="dog" id="dog"><label for="dog">Dog</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="animal" value="mouse" id="mouse" disabled><label for="mouse">Mouse
-                            (disabled)</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <div class="label">Fruit (inline)</div>
-                    <div class="wrap-inputs inline">
-                        <div class="radio">
-                            <input type="radio" name="fruit" value="apple" id="apple"><label
-                                for="apple">Apple</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="fruit" value="pear" id="pear"><label
-                                for="pear">Pear</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <div class="label">Your choice</div>
-                    <div class="wrap-inputs">
-                        <div class="checkbox">
-                            <input type="checkbox" name="checkies" value="one" id="one"><label for="one">One</label>
-                        </div>
-                        <div class="checkbox">
-                            <input type="checkbox" name="checkies" value="two" id="two"><label
-                                for="two">Two</label>
-                        </div>
-                        <div class="checkbox">
-                            <input type="checkbox" name="checkies" value="three" id="three" disabled><label
-                                for="three">Three (disabled)</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <div class="checkbox">
-                        <input type="checkbox" name="acceptme" value="acceptme" id="acceptme">
-                        <div class="label">Yes, I have read the <a href="#">document</a> et I accept it.</div>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <label for="myselect">Choose</label>
-                    <select class="myselect" name="myselect" id="myselect">
-                        <option value="" selected disabled>-- Please select an option --</option>
-                        <option value="a">Number one</option>
-                        <option value="a">Number two</option>
-                        <option value="b">Number three</option>
-                        <option value="c">Number four</option>
-                        <optgroup label="A group">
-                            <option value="d">Number five</option>
-                            <option value="e">Number six</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="form-item">
-                    <label for="contact-msg">Your message</label>
-                    <textarea name="contact-msg" id="contact-msg" cols="30" rows="10" required></textarea>
-                </div>
-                <div class="form-item form-item-buttons">
-                    <input type="submit" value="Envoyer">
+
+                <label for="myselect">Choose</label>
+                <select class="myselect" name="myselect" id="myselect">
+                    <option value="" selected disabled>-- Please select an option --</option>
+                    <option value="a">Number one</option>
+                    <option value="a">Number two</option>
+                    <option value="b">Number three</option>
+                    <option value="c">Number four</option>
+                    <optgroup label="A group">
+                        <option value="d">Number five</option>
+                        <option value="e">Number six</option>
+                    </optgroup>
+                </select>
+
+                <label for="contact-msg">Your message</label>
+                <textarea name="contact-msg" id="contact-msg" cols="30" rows="10" required></textarea>
+
+                <div class="form-buttons">
+                    <input type="submit" value="Send">
+                    <input type="submit" value="Disabled" disabled>
                 </div>
             </form>
 
+            <hr>
+
+            <form action="#" method="post" class="form-subscribe">
+                <label for="form-sub-email" class="visually-hidden">Your e-mail:</label>
+                <input type="email" name="form-sub-email" id="form-sub-email" placeholder="Your e-mail here">
+                <input type="submit" value="Subscribe">
+            </form>
+
+            <hr>
+            <div class="grid">
+                <div>Simple grid</div>
+                <div class="grid-span-2">Span 2</div>
+                <div>Span 1</div>
+                <div>Span 1</div>
+                <div>Span 1</div>
+            </div>
 
         </div>
 
@@ -169,8 +156,7 @@
 
     </div>
 
-</div>
-
+</section>
 
 <footer class="page-section page-section-footer">
 

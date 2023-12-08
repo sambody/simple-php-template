@@ -14,7 +14,7 @@
 <body>
 <h1>Login</h1>
 <?php if ($error) : ?>
-    <p style="color: teal; font-weight: bold;"><?= $error ?></p>
+    <p class="message-error"><?= $error ?></p>
 <?php endif; ?>
 <form action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="post">
     <label>Email: <input type="text" name="email" id="form-email" required></label>

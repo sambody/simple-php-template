@@ -1,6 +1,13 @@
 
-- Review PHP advanced eindoefening, use code
-- Add template CSS, html
+
+- Add menu dropdown (on click for accessibility)
+- Add mobile menu other from html template
+- Add search form with icon
+- Add wrapper for inputs, to contain errors etc?
+
+- Other components? Pico, Bootstrap, Foundation...
+- SASS version? like foundation
+- Add other special form inputs (range, date,...)
 
 # Todo NewProject
 
