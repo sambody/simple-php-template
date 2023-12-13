@@ -4,17 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TemplateStatic</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 
 <header class="page-section page-section-header">
-
     <div class="container">
-
         <div class="site-logo"><a href="/" title="Home"><img src="images/temp-logo.png" alt="Logo"></a></div>
-
         <nav class="nav-main">
             <ul role="menu">
                 <li role="menuitem" class="current"><a href="#" title="">Home</a></li>
@@ -22,27 +19,26 @@
                 <li role="menuitem"><a href="#" title="">Page two</a></li>
             </ul>
         </nav>
-
     </div>
-
 </header>
 
+<!--<section class="page-section">-->
+<!--    <div class="container">-->
+<!--        -->
+<!--    </div>-->
+<!--</section>-->
+
 <section class="page-section page-section-content">
-
     <div class="container">
-
         <div class="content-main" role="main">
 
             <h1>PageTitle</h1>
-
-            <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. </p>
-
-            <p>David n’a pas fait grand chose, il a juste créé un embryon de programme. Mais ce programme s’est développé lui-même. Comme l’ordinateur de David n’était pas suffisant, il a utilisé le réseau pour s’installer sur les autres ordinateurs. Il a grandi alors de manière exponentielle et le voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
+            <p>Lorem Ipsum is slechts <a href="#">een proeftekst</a> uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. </p>
+            <p>David n’a pas fait <strong>grand chose</strong>, il a juste créé un embryon de programme. Mais ce programme s’est développé lui-même. Comme l’ordinateur de David n’était pas suffisant, il a utilisé le réseau pour s’installer sur les autres ordinateurs. Il a grandi alors de manière exponentielle et le voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
 
             <hr>
 
             <h2>A form</h2>
-
             <form class="form-layout-columns" id="form-contact" method="post" action="#">
                 <label for="login-user-name">User name</label>
                 <input type="text" name="login-user-name" id="login-user-name" autocomplete="username" invalid required>
@@ -94,15 +90,15 @@
                     <label class="label-checkbox"><input type="checkbox" name="checkies" value="three" id="three" disabled>Three (disabled)</label>
                 </div>
 
-                <div class="label wrap-checkbox form-position-fullwidth">
+                <label class="label wrap-checkbox form-position-fullwidth">
                     <input type="checkbox" name="acceptme" value="acceptme" id="acceptme">
                     Yes, I have read the <a href="#">document</a> et I accept the whole document.
-                </div>
+                </label>
 
-                <div class="label wrap-checkbox form-position-right">
+                <label class="label-checkbox form-position-right" for="acceptterms">
                     <input type="checkbox" name="acceptterms" value="acceptterms" id="acceptterms">
-                    Yes, I have read the <a href="#">document</a> et I accept the whole document.
-                </div>
+                    Yes, I agree with the <a href="#">document</a>.
+                </label>
 
                 <label for="myselect">Choose</label>
                 <select class="myselect" name="myselect" id="myselect">
@@ -125,15 +121,6 @@
                     <input type="submit" value="Disabled" disabled>
                 </div>
             </form>
-
-            <hr>
-
-            <form action="#" method="post" class="form-subscribe">
-                <label for="form-sub-email" class="visually-hidden">Your e-mail:</label>
-                <input type="email" name="form-sub-email" id="form-sub-email" placeholder="Your e-mail here">
-                <input type="submit" value="Subscribe">
-            </form>
-
             <hr>
             <div class="grid">
                 <div>Simple grid</div>
@@ -142,32 +129,22 @@
                 <div>Span 1</div>
                 <div>Span 1</div>
             </div>
-
         </div>
 
         <div class="content-sub">
-
             <aside class="widget">
                 <p>A widget or sidebar component</p>
             </aside>
-
         </div>
 
-
     </div>
-
 </section>
 
 <footer class="page-section page-section-footer">
-
     <div class="container">
-
         <p class="footer-legal">© SiteName in footer</p>
-
     </div>
-
 </footer>
-
 
 </body>
 </html>

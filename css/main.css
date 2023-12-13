@@ -10,45 +10,95 @@
 ==============================================
 */
 :root {
-    --container-max-width: 980px;
+    /* layout */
+    --container-max-width: 1100px;
     --row-gap: 30px;
+    --row-gap-small: 15px;
     --column-gap: 20px;
+    --column-gap-small: 10px;
 
+    /* brand colors */
+    --primary-color: var(--red);
+    --primary-color-light: var(--red-light);
+    --primary-color-dark: var(--red-dark);
+
+    --secundary-color: var(--orange);
+    --secundary-color-light: var(--orange-light);
+    --secundary-color-dark: var(--orange-dark);
+
+    /* named colors, adapt to brand / design colors */
+    --red: #982929;
+    --red-light: #c44242;
+    --red-dark: #731e1e;
+    --blue: #123bbe;
+    --blue-light: #345ee0;
+    --blue-dark: #102a7e;
+    --teal: #107979;
+    --teal-light: #1fa6a6;
+    --teal-dark: #0d5656;
+    --orange: #d3982d;
+    --orange-light: #e5b969;
+    --orange-dark: #ab7411;
+    --yellow: #e5d846;
+    --yellow-light: #ecec86;
+    --yellow-dark: #abab17;
+    --grey: #868686;
+    --grey-light: #a6a6a6;
+    --grey-dark: #575757;
+    --brown: #654129;
+    --brown-light: #8d6042;
+    --brown-dark: #492d1b;
+    --purple: #792479;
+    --purple-light: #9f469f;
+    --purple-dark: #5e1d5e;
+
+    --twitter-blue: blue;
+    --facebook-blue: blue;
+    --linkedin-blue: blue;
+
+    /* typography */
     --font-family: Trebuchet, Arial, Helvetica, sans-serif;
-    --font-family-special: var(--font-family); /* For headings etc */
+    --font-family-special: var(--font-family);
     --font-size: 1.6rem;
+    --line-height: 1.4;
     --color: black;
 
+    --heading-font-family: var(--font-family-special);
+    --heading-color: var(--color);
+    --heading-line-height: 1.25;
+
+    /* links */
+    --link-color: var(--primary-color);
+    --link-background-color: transparent;
+    --link-text-decoration: none;
+    --link-font-weight: normal;
+    --link-color-hover: var(--primary-color);
+    --link-background-color-hover: transparent;
+    --link-text-decoration-hover: underline;
+
+    /* forms */
+    --input-field-border-color: #a4a4a4;
+    --input-field-border-radius: 5px;
+    --input-field-font-size: var(--font-size);
+    --input-field-line-height: var(--line-height);
+    --input-placeholder-color: grey;
+
+    --button-color: white;
+    --button-font-weight: bold;
+    --button-background-color: var(--primary-color);
+    --button-border-radius: 6px;
+    --button-border-color: var(--primary-color-dark);
+    --button-color-hover: white;
+    --button-background-color-hover: var(--primary-color-light);
+
+    /* other */
     --focus-color: black;
     --focus-background-color: #ffff56;
     --error-color: darkred;
     --success-color: darkgreen;
 
-    --heading-font-family: var(--font-family-special);
-    --heading-color: var(--color);
-
-    --primary-color: darkred;
-    --primary-color-light: #ab1a1a;
-    --primary-color-dark: #6c0000;
-
-    --secundary-color: orange;
-
-    --link-color: var(--primary-color);
-    --link-background-color: transparent;
-    --link-text-decoration: none;
-    --link-color-hover: var(--primary-color);
-    --link-background-color-hover: transparent;
-    --link-text-decoration-hover: underline;
-
-    --input-field-border-color: #545454;
-    --input-field-border-radius: 3px;
-    --button-border-radius: 6px;
-    --button-color: white;
-    --button-background-color: var(--primary-color);
-    --button-color-hover: white;
-    --button-background-color-hover: var(--primary-color-light);
-
     --border-color: grey;
+    --image-border-color: #d0d0d0;
     --radius: 4px;
     --box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
     --transition: 0.15s all;
@@ -56,10 +106,10 @@
 
 /*
 ==============================================
- PAGE LAYOUT
+ PAGE LAYOUT and grids
 ==============================================
 */
-/*<editor-fold desc="Page layout">*/
+/*<editor-fold desc="Page layout, grids">*/
 html {
     box-sizing: border-box;
     height: 100%;
@@ -83,9 +133,16 @@ body {
     padding: 0;
 }
 
-.page-section > .container {
+.page-section {
+    /*outline: 1px solid green;*/
     padding-left: var(--column-gap);
     padding-right: var(--column-gap);
+}
+
+.page-section > .container {
+    /*outline: 1px solid red;*/
+    padding-top: var(--row-gap);
+    padding-bottom: var(--row-gap);
 }
 
 .page-section-content {
@@ -93,27 +150,25 @@ body {
 }
 
 .page-section-content > .container {
-    padding-top: 30px;
-    padding-bottom: 0;
+    padding-bottom: 1px;
 }
 
+/* content columns, if any */
 .content-main,
 .content-sub {
-    padding-bottom: 30px;
+    padding-bottom: var(--row-gap);
 }
 
 /* ---------------- Page layout desktop
 */
 @media (min-width: 600px) {
-    .page-section {
-        display: flex;
-        justify-content: center;
-        /*outline: 1px solid green;*/
-    }
     .page-section > .container {
         width: var(--container-max-width);
-        /*outline: 1px solid red;*/
+        max-width: var(--container-max-width);
+        margin-left: auto;
+        margin-right: auto;
     }
+    /* content columns */
     .page-section-content > .container {
         display: grid;
         grid-template-columns: 7fr 3fr;
@@ -127,14 +182,87 @@ body {
         grid-column: 2 / span 1;
     }
 
-    .content-two-cols {
-        display: grid;
-        grid-template-columns: repeat(2, 48%);
-        justify-content: space-between;
+    .content-main.content-full-width {
+        grid-column: 1 / -1;
     }
 
-    .content-main.content-full-width {
-        grid-column: 1 / span 2;
+}
+
+/* ---------------- three columns grid
+*/
+.grid-three-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 3rem 2.5rem;
+}
+.grid-three-cols > .grid-column {
+    margin-bottom: 0;
+}
+.grid-column img.image-styled {
+    max-width: 85%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ---------------- Simple grid, any number of columns
+*/
+.grid {
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+}
+.grid-column {
+    /*outline: 2px solid orange;*/
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+}
+.grid-column:last-child {
+    /*outline: 2px solid orange;*/
+    padding-bottom: 0;
+}
+
+@media (min-width: 600px) {
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+        gap: var(--column-gap);
+    }
+    .grid-span-1 {
+        grid-column: span 1;
+    }
+    .grid-span-2 {
+        grid-column: span 2;
+    }
+    .grid-span-3 {
+        grid-column: span 3;
+    }
+    .grid-span-4 {
+        grid-column: span 4;
+    }
+    .grid-span-5 {
+        grid-column: span 5;
+    }
+    .grid-span-6 {
+        grid-column: span 6;
+    }
+    .grid-span-7 {
+        grid-column: span 7;
+    }
+    .grid-span-8 {
+        grid-column: span 8;
+    }
+    .grid-span-9 {
+        grid-column: span 9;
+    }
+    .grid-span-10 {
+        grid-column: span 10;
+    }
+    .grid-span-11 {
+        grid-column: span 11;
+    }
+    .grid-span-12,
+    .grid-span-full{
+        grid-column: span 12;
     }
 
 }
@@ -142,13 +270,13 @@ body {
 
 /*
 ==============================================
- CONTENT - typography, images, tables
+ Typography, images, tables
 ==============================================
 */
-/*<editor-fold desc="Content">*/
+/*<editor-fold desc="Typography">*/
 html {
     font-size: 62.5%;
-    /* Now use rem (or em) for other font-sizes: 1rem = 10px (problem: small font with PHP errors...) */
+    /* Now use rem (or em) for other font-sizes: 1rem = 10px */
     /* rem are proportional to this root only; em are proportional to parent, so may cascade... */
 }
 
@@ -162,7 +290,7 @@ p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address {
     margin-bottom: 1em;
     margin-top: 1em;
     font-size: var(--font-size);
-    line-height: 1.4;
+    line-height: var(--line-height);
     font-weight: 400;
 }
 p:last-child, dd:last-child, li:last-child {
@@ -179,29 +307,30 @@ ol p, ul p, ol ol, ul ul, label p, dt p, dd p, table p {
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 1.5em;
+    margin-bottom: 1em;
 
     font-family: var(--heading-font-family);
     font-weight: bold;
-    line-height: 1.25;
+    line-height: var(--heading-line-height);
     color: var(--heading-color);
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 3rem;
     line-height: 1;
     color: var(--primary-color);
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 2.4rem;
 }
 
 h3 {
-    font-size: 16px;
+    font-size: 1.6rem;
 }
 
 h4, h5, h6 {
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: normal;
     color: #1c1c1c;
 }
@@ -216,10 +345,6 @@ p:first-child {
     margin-top: 0;
 }
 
-p:last-child {
-    margin-bottom: 0;
-}
-
 /* ---------------- Links
 */
 a {
@@ -227,9 +352,12 @@ a {
     text-decoration: var(--link-text-decoration);
     background: var(--link-background-color);
     transition: var(--transition);
+    font-weight: var(--link-font-weight);
 }
 
-a:active, a:focus, a:hover {
+a:active,
+a:focus,
+a:hover {
     color: var(--link-color-hover);
     text-decoration: var(--link-text-decoration-hover);
     background: var(--link-background-color-hover);
@@ -249,6 +377,7 @@ small {
 
 mark {
     background: #FFFF7F;
+    color: #1c1c1c;
 }
 
 .text-center {
@@ -261,10 +390,6 @@ mark {
 
 /* ---------------- Lists
 */
-ol p, ul p {
-    font-size: inherit;
-}
-
 ul {
     list-style: disc;
     margin-left: 22px;
@@ -273,7 +398,7 @@ ul {
 
 ul li {
     margin-left: 0;
-    margin-bottom: 12px;
+    margin-bottom: 1.2rem;
     padding-left: 18px;
 }
 
@@ -286,32 +411,23 @@ ol {
 }
 
 ol li {
-    margin-bottom: 12px;
+    margin-bottom: 1.2rem;
 }
 
 /* Inline (horizontal) list
 */
-.list-inline {
+.list-horizontal {
     margin: 0 0 1em 0;
     padding: 0;
     list-style: none;
+    display: flex;
+    gap: 10px;
 }
 
-.list-inline:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.list-inline > li {
-    display: inline-block;
-    margin: 0 10px 20px 0;
+.list-horizontal > li {
+    margin: 0;
     padding: 0;
     background: none;
-}
-
-.list-inline img {
-    display: block;
 }
 
 /* list with no bullets, but still vertical
@@ -329,37 +445,27 @@ ol li {
 
 /* ---------------- Definition lists
 */
+dl{}
 dt {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
 }
 
 dd {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     margin-left: 0;
 }
+/*</editor-fold>*/
 
-.dl-horizontal dt {
-    float: left;
-    clear: left;
-    overflow: hidden;
-    -moz-text-align-last: right;
-    text-align-last: right;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 150px;
-}
-
-.dl-horizontal dd {
-    margin-left: 170px;
-}
-
-/* ---------------- Images
+/*
+==============================================
+ Images, media
+==============================================
 */
+/*<editor-fold desc="Images, media">*/
 img,
 svg {
     max-width: 100%;
-    /* responsive */
     height: auto;
 }
 
@@ -367,20 +473,9 @@ img {
     vertical-align: middle;
 }
 
-.left {
-    float: left;
-    margin: 0 15px 5px 0;
-}
-
-.right {
-    float: right;
-    margin: 0 0 5px 15px;
-}
-
-/* class on img */
-.center {
+img.center {
     display: block;
-    margin: 22px auto 22px;
+    margin: 0 auto 1rem;
     clear: both;
 }
 
@@ -390,22 +485,36 @@ img {
     margin: 0 auto;
 }
 
-/* img on top of page content */
-p:first-child img.center,
-header + p img.center {
-    margin-top: 0;
+img.image-styled {
+    border: 5px solid var(--primary-color);
 }
 
 a img {
-    transition: 0.15s all;
+    transition: var(--transition);
 }
 
 a:hover img {
-    opacity: 0.8;
+    /*opacity: 0.8;*/
 }
 
-/* ---------------- Horizontal rule
+@media (min-width: 600px) {
+    .float-left {
+        float: left;
+        margin: 0 15px 5px 0;
+    }
+
+    .float-right {
+        float: right;
+        margin: 0 0 5px 15px;
+    }
+}
+/*</editor-fold>*/
+
+/*
+==============================================
+ TABLES, HR
 */
+/*<editor-fold desc="Tables, hr">*/
 hr {
     clear: both;
     display: block;
@@ -416,10 +525,8 @@ hr {
     padding: 0;
 }
 
-/* ---------------- Tables
-*/
 table {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     width: 100%;
 }
 
@@ -439,32 +546,27 @@ thead:first-child tr th,
 thead:first-child tr td {
     border-top: 0;
 }
-
-/* Wrap tables (or pre) elements in a div with this class */
-.overflow-container {
-    overflow-x: scroll;
-}
 /*</editor-fold>*/
 
 /*
-================================
+==============================================
  MESSAGES - Errors and confirmations on top of page
-================================
+==============================================
 */
-/*<editor-fold desc="Messages">*/
+/*<editor-fold desc="Messages on top of page">*/
 .message {
     background: #eeeeee;
     color: black;
     margin: 0 0 30px 0;
     padding: 20px;
-    font-size: 16px;
+    font-size: var(--font-size);
 }
 .message h2, h3, h4, h5, h6, p, li {
     color: inherit;
 }
 .message ul {
     list-style: circle;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 1rem;
 }
 .message li {
     margin-top: 0;
@@ -482,28 +584,25 @@ thead:first-child tr td {
 }
 /*</editor-fold>*/
 
-
 /*
 ==============================================
  FORM styles
 ==============================================
 */
-/* ---------------- Form fonts
-*/
-/*<editor-fold desc="Form fonts">*/
+/*<editor-fold desc="Forms - Fonts">*/
 form,
 input,
 select,
 textarea {
     color: var(--color);
     font-size: var(--font-size);
-    line-height: 1.4;
+    line-height: var(--input-field-line-height);
 }
 /*</editor-fold>*/
 
 /* ---------------- Input fields
 */
-/*<editor-fold desc="Input fields">*/
+/*<editor-fold desc="Forms - Input fields">*/
 input {
     margin: 0;
 }
@@ -578,7 +677,7 @@ input[type="color"]:focus,
 select:focus,
 textarea:focus {
     border-color: #1c1c1c;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);*/
     background: #fff;
 }
 
@@ -611,24 +710,12 @@ textarea[rows] {
 /*}*/
 
 
-/* Placeholder in input fields (keep as separate rules)
-	*/
-/*::-webkit-input-placeholder {*/
-/*  color: #515151;*/
-/*  font-style: normal;*/
-/*}*/
-
-/*::-moz-placeholder {*/
-/*  color: #515151;*/
-/*  opacity: 1;*/
-/*  font-style: normal;*/
-/*}*/
-
-/*:-ms-input-placeholder {*/
-/*  color: #515151;*/
-/*  font-style: normal;*/
-/*}*/
-
+/* Input placeholder
+*/
+::placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 1;
+}
 
 /* Select/option dropdowns
 */
@@ -659,9 +746,9 @@ input[type="file"] {
 }
 /*</editor-fold>*/
 
-/* ---------------- Form buttons
+/* ---------------- Forms - Buttons
 */
-/*<editor-fold desc="Form buttons">*/
+/*<editor-fold desc="Forms -  buttons">*/
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -674,14 +761,14 @@ a.button {
     margin: 0;
     padding: 8px 25px 8px;
     border-radius: var(--button-border-radius);
-    border: none;
+    border: 1px solid var(--button-border-color);
     transition: var(--transition);
     background: var(--button-background-color);
 
     font-family: var(--font-family);
     font-size: var(--font-size);
     color: var(--button-color);
-    font-weight: bold;
+    font-weight: var(--button-font-weight);
     text-align: center;
     text-decoration: none;
 }
@@ -702,8 +789,8 @@ input[type="submit"]:active,
 input[type="reset"]:active,
 button:active,
 .button:active {
-    background-color: #ff3300;
-    border-color: #ff3300;
+    background-color: var(--button-background-color-hover);
+    /*border-color: #ff3300;*/
 
     color: white;
 }
@@ -713,12 +800,11 @@ input[type="reset"]:focus,
 input[type="button"]:focus,
 button:focus,
 .button:focus {
-    background: #ff3300;
-    border-color: #ff3300;
+    background: var(--button-background-color-hover);
     outline: 1px dotted black;
     outline-offset: 2px;
 
-    color: white;
+    color: var(--button-color-hover);
 }
 
 input[type="submit"]:disabled,
@@ -729,26 +815,27 @@ input[type="reset"]:disabled:hover,
 input[type="button"]:disabled:hover {
     background: #c0c0c0;
     color: #5b5b5b;
+    border-color: #c0c0c0;
     cursor: not-allowed;
 }
 /*</editor-fold>*/
 
 /* ---------------- Checkboxes and radios
 */
-/*<editor-fold desc="checkboxes, radios">*/
+/*<editor-fold desc="Forms - Checkboxes, radios">*/
 input[type="radio"],
 input[type="checkbox"] {
     border-width: 0;
     width: auto;
     position: relative;
-    margin: 0 5px 0 0;
-    top: 1px;
+    margin: 0 7px 0 0;
+    top: 0;
 }
 /*</editor-fold>*/
 
 /* ---------------- Form inline messages
 */
-/*<editor-fold desc="Form messages">*/
+/*<editor-fold desc="Forms - Messages">*/
 .form-help {
     color: #808080;
     margin-top: 5px;
@@ -766,7 +853,7 @@ input[type="checkbox"] {
 
 /* ---------------- Form layout
 */
-/*<editor-fold desc="Form layout">*/
+/*<editor-fold desc="Forms - Layout">*/
 form {
     margin-bottom: 0;
 }
@@ -780,9 +867,7 @@ label,
 .form-buttons {
     display: block;
     vertical-align: top;
-    margin-top: 20px;
-    /*margin-bottom: 2px;*/
-    /*padding-right: 10px;*/
+    margin-top: 2rem;
 }
 
 .form-wrap-inputs {
@@ -838,15 +923,15 @@ label,
 
     form.form-layout-columns {
         display: grid;
-        grid-template-columns: 3fr 7fr; /* fr instead of % to use available space */
-        gap: 20px 15px; /* row gap, column gap*/
+        grid-template-columns: 3fr 7fr;
+        gap: 15px 20px; /* adapt also error top margin */
     }
 
     .form-layout-columns > label,
     .form-layout-columns > .label {
         margin-top: 0;
-        padding-top: 5px;
-        text-align: right; /* option */
+        padding-top: 5px; /* to align with field text */
+        /*text-align: right; */
     }
 
     .form-layout-columns .form-position-left {
@@ -857,8 +942,9 @@ label,
     .form-layout-columns .form-position-right,
     .form-layout-columns .form-error,
     .form-layout-columns .form-description {
+        padding-top: 0;
         grid-column-start: 2;
-        margin-top: -18px;
+        margin-top: -8px;
     }
 
     .form-layout-columns .form-position-fullwidth {
@@ -885,38 +971,22 @@ label,
 /*</editor-fold>*/
 
 /*
-================================
- FORM - subscribe
-================================
-*/
-/*<editor-fold desc="Form Subscribe">*/
-.form-subscribe {
-    display: grid;
-    grid-template-columns: 1fr auto;
-}
-.form-subscribe input[type="email"] {
-    border: none;
-    border-radius: 0;
-}
-.form-subscribe input[type="submit"] {
-    border-radius: 0;
-}
-/*</editor-fold>*/
-
-/*
 ==============================================
- SITE HEADER
+ SECTION - SITE HEADER
 ==============================================
 */
-/*<editor-fold desc="Description">*/
+/*<editor-fold desc="Section - Site header">*/
 .page-section-header {
     border-top: 8px solid var(--primary-color);
 }
 
 /* ---------------- Site logo
 */
+.site-logo {
+    margin-bottom: 1.5rem;
+}
 .site-logo a {
-    display: block;
+    display: inline-block;
 }
 
 .site-logo a:hover {
@@ -942,8 +1012,6 @@ label,
 .nav-main {
     margin: 0;
     padding: 0;
-    font-size: 16px;
-    line-height: 1.4;
 }
 .nav-main ul {
     margin: 0;
@@ -955,20 +1023,22 @@ label,
     padding: 0;
     list-style: none;
     background: none;
+    border-bottom: 1px solid #d9d9d9;
+
+    font-size: 1.6rem;
+    line-height: 1.4;
 }
 
 .nav-main a {
-    display: inline-block;
+    display: block;
     margin: 0;
     padding: 7px 10px;
     background: #ececec;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
 }
 /* current page */
 .nav-main .current > a {
-    background: #eaeaad;
+    background: #efc2d2;
 }
 
 /* hover */
@@ -980,106 +1050,79 @@ label,
 }
 
 @media (min-width: 600px) {
+
     .page-section-header > .container {
         height: 140px;
         display: flex;
         justify-content: left;
         align-items: center; /* default is stretch */
-        gap: 40px;
+        gap: 4rem;
+    }
+    .nav-main {
+        /*margin-left: auto;*/
     }
     .nav-main ul {
         display: flex;
         gap: 6px;
     }
+    .nav-main li {
+        border-bottom: none;
+    }
+
 }
 /*</editor-fold>*/
 
 /*
 ==============================================
- SIDEBAR
-==============================================
+ SECTION INTRO
 */
+/*<editor-fold desc="Section - Intro">*/
+.page-section-intro {}
 
+/*</editor-fold>*/
 
 /*
 ==============================================
- FOOTER
+ SECTION Content
+*/
+/*<editor-fold desc="Section - Content">*/
+.page-section-content {}
+
+/*</editor-fold>*/
+
+/*
+==============================================
+ SECTION - FOOTER
 ==============================================
 */
-/*<editor-fold desc="Site footer">*/
+/*<editor-fold desc="Section - Site footer">*/
 .page-section-footer > .container {
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 /*</editor-fold>*/
 
 /*
 ==============================================
- HELPER CLASSES - grid, show/hide
+ HELPER CLASSES - show/hide etc
 ==============================================
 */
-
 /*<editor-fold desc="Helper classes">*/
-/* ---------------- Simple grid, any number of columns
-*/
-.grid {
-    margin-bottom: 0;
-    padding-bottom: 20px;
+.clear {
+    clear: both;
 }
-.grid > * {
-    /*outline: 2px solid orange;*/
-    padding-bottom: 10px;
-    margin-bottom: 0;
+@supports (display: flow-root) {
+    .clearfix {
+        display: flow-root;
+    }
 }
-.grid > *:last-child {
-    /*outline: 2px solid orange;*/
-    padding-bottom: 0;
-}
-@media (min-width: 600px) {
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
-        gap: var(--column-gap);
+@supports not (display: flow-root) {
+    .clearfix::after { /* do not combine with flex parent */
+        content: "";
+        clear: both;
+        display: block;
+        /*overflow: auto;  alternative */
     }
-    .grid-span-1 {
-        grid-column: span 1;
-    }
-    .grid-span-2 {
-        grid-column: span 2;
-    }
-    .grid-span-3 {
-        grid-column: span 3;
-    }
-    .grid-span-4 {
-        grid-column: span 4;
-    }
-    .grid-span-5 {
-        grid-column: span 5;
-    }
-    .grid-span-6 {
-        grid-column: span 6;
-    }
-    .grid-span-7 {
-        grid-column: span 7;
-    }
-    .grid-span-8 {
-        grid-column: span 8;
-    }
-    .grid-span-9 {
-        grid-column: span 9;
-    }
-    .grid-span-10 {
-        grid-column: span 10;
-    }
-    .grid-span-11 {
-        grid-column: span 11;
-    }
-    .grid-span-12,
-    .grid-span-full{
-        grid-column: span 12;
-    }
-
 }
 
 /* ---------------- Show / hide
@@ -1117,6 +1160,16 @@ label,
     }
 }
 
+/* Wrap tables or pre elements in a div with this class */
+.allow-horizontal-scroll {
+    overflow-x: scroll;
+}
+
+/* Hide tap highlight (on mobile/tablets) on buttons that don't link to pages, eg. toggles */
+.hide-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+}
+
 /* IOS specifics */
 @media screen and (max-width: 769px) {
     /* Absolute measure here */
@@ -1126,4 +1179,3 @@ label,
     }
 }
 /*</editor-fold>*/
-
