@@ -38,87 +38,186 @@
 
             <hr>
 
-            <h2>A form</h2>
-            <form class="form-layout-columns" id="form-contact" method="post" action="#">
+            <h2>A login form - inline</h2>
+            <form class="form-layout-inline" id="form-login" method="post" action="#">
                 <label for="login-user-name">User name</label>
                 <input type="text" name="login-user-name" id="login-user-name" autocomplete="username" invalid required>
-                <div class="form-error">Error message</div>
-
                 <label for="login-password">Your password</label>
                 <input type="text" name="login-password" id="login-password" autocomplete="current-password" required>
+                <input type="submit" value="Send">
+            </form>
 
-                <label for="login-one-time-password">One time password/code</label>
-                <input type="text" name="login-one-time-password" id="login-one-time-password" autocomplete="one-time-code" required>
+            <hr>
 
-                <label for="first-name">First name</label>
-                <input type="text" name="first-name" id="first-name" placeholder="first name" autocomplete="given-name" required>
-
-                <label for="last-name">Last name (disabled)</label>
-                <input type="text" name="last-name" id="last-name" placeholder="last name" autocomplete="family-name" disabled required>
-
-                <label for="contact-search">Search</label>
-                <input type="search" name="contact-search" id="contact-search">
-
-                <label for="contact-email">E-mail</label>
-                <input type="email" name="contact-email" id="contact-email" autocomplete="email" required>
-
-                <label for="login-pwd">Create a password</label>
-                <input type="password" name="login-pwd" id="login-pwd" class="size-small">
-
-                <label class="label-checkbox form-description"><input type="checkbox" name="rememberme" value="rememberme" id="rememberme">Remember me</label>
-
-                <p class="recover-password form-description"><a href="#">Forgot password?</a></p>
-
-                <div class="label">Animal</div>
-                <div class="form-wrap-inputs" role="radiogroup">
-                    <label class="label-radio"><input type="radio" name="animal" value="cat" id="cat">Cat</label>
-                    <label class="label-radio"><input type="radio" name="animal" value="dog" id="dog">Dog</label>
-                    <label class="label-radio"><input type="radio" name="animal" value="mouse" id="mouse" disabled>Mouse
-                        (disabled)</label>
+            <h2>A login form - stacked</h2>
+            <form class="form-layout-stacked" id="form-login2" method="post" action="#">
+                <div class="form-group">
+                    <label for="login-user-name">User name</label>
+                    <input type="text" name="login-user-name" id="login-user-name" autocomplete="username" invalid required>
                 </div>
-
-                <div class="label">Fruit (inline)</div>
-                <div class="form-wrap-inputs inline" role="radiogroup">
-                    <label class="label-radio"><input type="radio" name="fruit" value="apple" id="apple">Apple</label>
-                    <label class="label-radio"><input type="radio" name="fruit" value="pear" id="pear">Pear</label>
+                <div class="form-group">
+                    <label for="login-password">Your password</label>
+                    <input type="text" name="login-password" id="login-password" autocomplete="current-password" required>
                 </div>
-
-                <div class="label">Your choice among these three beautiful options</div>
-                <div class="form-wrap-inputs">
-                    <label class="label-checkbox"><input type="checkbox" name="checkies" value="one" id="one">One</label>
-                    <label class="label-checkbox"><input type="checkbox" name="checkies" value="two" id="two">Two</label>
-                    <label class="label-checkbox"><input type="checkbox" name="checkies" value="three" id="three" disabled>Three (disabled)</label>
-                </div>
-
-                <label class="label wrap-checkbox form-position-fullwidth">
-                    <input type="checkbox" name="acceptme" value="acceptme" id="acceptme">
-                    Yes, I have read the <a href="#">document</a> et I accept the whole document.
-                </label>
-
-                <label class="label-checkbox form-position-right" for="acceptterms">
-                    <input type="checkbox" name="acceptterms" value="acceptterms" id="acceptterms">
-                    Yes, I agree with the <a href="#">document</a>.
-                </label>
-
-                <label for="myselect">Choose</label>
-                <select class="myselect" name="myselect" id="myselect">
-                    <option value="" selected disabled>-- Please select an option --</option>
-                    <option value="a">Number one</option>
-                    <option value="a">Number two</option>
-                    <option value="b">Number three</option>
-                    <option value="c">Number four</option>
-                    <optgroup label="A group">
-                        <option value="d">Number five</option>
-                        <option value="e">Number six</option>
-                    </optgroup>
-                </select>
-
-                <label for="contact-msg">Your message</label>
-                <textarea name="contact-msg" id="contact-msg" cols="30" rows="10" required></textarea>
-
-                <div class="form-buttons">
+                <div class="form-group">
                     <input type="submit" value="Send">
-                    <input type="submit" value="Disabled" disabled>
+                </div>
+            </form>
+
+            <hr>
+
+            <h2>A form</h2>
+            <form class="form-layout-grid" id="form-contact" method="post" action="#">
+                <div class="form-group">
+                    <div class="form-group-label">
+                        <label for="login-user-name">User name</label>
+                    </div>
+                    <div class="form-group-input">
+                        <input type="text" name="login-user-name" id="login-user-name" autocomplete="username" invalid required>
+                        <div class="form-error">Error message</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                        <label for="login-password">Your password</label>
+                    </div>
+                    <div class="form-group-input">
+                        <input type="text" name="login-password" id="login-password" autocomplete="current-password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                        <label for="login-one-time-password">One time password/code</label>
+                    </div>
+                    <div class="form-group-input">
+                        <input type="text" name="login-one-time-password" id="login-one-time-password" autocomplete="one-time-code" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                    <label for="first-name">First name</label>
+                    </div>
+                    <div class="form-group-input">
+                    <input type="text" name="first-name" id="first-name" placeholder="first name" autocomplete="given-name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                    <label for="last-name">Last name (disabled)</label>
+                    </div>
+                    <div class="form-group-input">
+                    <input type="text" name="last-name" id="last-name" placeholder="last name" autocomplete="family-name" disabled required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                    <label for="contact-search">Search</label>
+                    </div>
+                    <div class="form-group-input">
+                    <input type="search" name="contact-search" id="contact-search">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                    <label for="contact-email">E-mail</label>
+                    </div>
+                    <div class="form-group-input">
+                    <input type="email" name="contact-email" id="contact-email" autocomplete="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                    <label for="login-pwd">Create a password</label>
+                    </div>
+                    <div class="form-group-input">
+                    <input type="password" name="login-pwd" id="login-pwd" class="size-small">
+                    <label class="label-checkbox form-description"><input type="checkbox" name="rememberme" value="rememberme" id="rememberme">Remember me</label>
+                    <p class="recover-password form-description"><a href="#">Forgot password?</a></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                    <div class="label">Animal</div>
+                    </div>
+                    <div class="form-group-input">
+                    <div class="form-wrap-inputs" role="radiogroup">
+                        <label class="label-radio"><input type="radio" name="animal" value="cat" id="cat">Cat</label>
+                        <label class="label-radio"><input type="radio" name="animal" value="dog" id="dog">Dog</label>
+                        <label class="label-radio"><input type="radio" name="animal" value="mouse" id="mouse" disabled>Mouse (disabled)</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                    <div class="label">Fruit (inline)</div>
+                    </div>
+                    <div class="form-group-input">
+                    <div class="form-wrap-inputs inline" role="radiogroup">
+                        <label class="label-radio"><input type="radio" name="fruit" value="apple" id="apple">Apple</label>
+                        <label class="label-radio"><input type="radio" name="fruit" value="pear" id="pear">Pear</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                    <div class="label">Your choice among these three beautiful options</div>
+                    </div>
+                    <div class="form-group-input">
+                    <div class="form-wrap-inputs">
+                        <label class="label-checkbox"><input type="checkbox" name="checkies" value="one" id="one">One</label>
+                        <label class="label-checkbox"><input type="checkbox" name="checkies" value="two" id="two">Two</label>
+                        <label class="label-checkbox"><input type="checkbox" name="checkies" value="three" id="three" disabled>Three (disabled)</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-input">
+                    <label class="label wrap-checkbox form-position-fullwidth">
+                        <input type="checkbox" name="acceptme" value="acceptme" id="acceptme">
+                        Yes, I have read the <a href="#">document</a> et I accept the whole document.
+                    </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-input">
+                    <label class="label-checkbox form-position-right" for="acceptterms">
+                        <input type="checkbox" name="acceptterms" value="acceptterms" id="acceptterms">
+                        Yes, I agree with the <a href="#">document</a>.
+                    </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
+                    <label for="myselect">Choose</label>
+                    </div>
+                    <div class="form-group-input">
+                    <select class="myselect" name="myselect" id="myselect">
+                        <option value="" selected disabled>-- Please select an option --</option>
+                        <option value="a">Number one</option>
+                        <option value="a">Number two</option>
+                        <option value="b">Number three</option>
+                        <option value="c">Number four</option>
+                        <optgroup label="A group">
+                            <option value="d">Number five</option>
+                            <option value="e">Number six</option>
+                        </optgroup>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-input">
+                        <label for="contact-msg">Your message</label>
+                        <textarea name="contact-msg" id="contact-msg" cols="30" rows="10" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-input">
+                        <div class="form-buttons">
+                            <input type="submit" value="Send">
+                            <input type="submit" value="Disabled" disabled>
+                            <input class="outlined" type="submit" value="Outlined">
+                        </div>
+                    </div>
                 </div>
             </form>
             <hr>

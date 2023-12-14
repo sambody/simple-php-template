@@ -18,50 +18,55 @@
     --column-gap-small: 10px;
 
     /* brand colors */
-    --primary-color: var(--red);
-    --primary-color-light: var(--red-light);
-    --primary-color-dark: var(--red-dark);
+    --primary-color-lighter: #de8585;
+    --primary-color-light: #c54545;
+    --primary-color: #982929;
+    --primary-color-dark: #731e1e;
+    --primary-color-darker: #491212;
 
-    --secundary-color: var(--orange);
+    --accent-color-lighter: #de8585;
+    --accent-color-light: #c54545;
+    --accent-color: #982929;
+    --accent-color-dark: #731e1e;
+    --accent-color-darker: #491212;
+
     --secundary-color-light: var(--orange-light);
+    --secundary-color: var(--orange);
     --secundary-color-dark: var(--orange-dark);
 
     /* named colors, adapt to brand / design colors */
     --red: #982929;
-    --red-light: #c44242;
+    --red-light: #c54545;
     --red-dark: #731e1e;
-    --blue: #123bbe;
-    --blue-light: #345ee0;
-    --blue-dark: #102a7e;
+    --blue: #1257be;
+    --blue-light: #457ed3;
+    --blue-dark: #0c3b81;
     --teal: #107979;
     --teal-light: #1fa6a6;
     --teal-dark: #0d5656;
-    --orange: #d3982d;
-    --orange-light: #e5b969;
-    --orange-dark: #ab7411;
     --yellow: #e5d846;
     --yellow-light: #ecec86;
     --yellow-dark: #abab17;
-    --grey: #868686;
-    --grey-light: #a6a6a6;
-    --grey-dark: #575757;
+    --orange: #d3982d;
+    --orange-light: #e5b969;
+    --orange-dark: #ab7411;
     --brown: #654129;
     --brown-light: #8d6042;
     --brown-dark: #492d1b;
     --purple: #792479;
     --purple-light: #9f469f;
     --purple-dark: #5e1d5e;
-
-    --twitter-blue: blue;
-    --facebook-blue: blue;
-    --linkedin-blue: blue;
+    --grey: #868686;
+    --grey-light: #a6a6a6;
+    --grey-dark: #575757;
 
     /* typography */
     --font-family: Trebuchet, Arial, Helvetica, sans-serif;
     --font-family-special: var(--font-family);
     --font-size: 1.6rem;
     --line-height: 1.4;
-    --color: black;
+    --color: #2a2a2a;
+    --color-invert: white;
 
     --heading-font-family: var(--font-family-special);
     --heading-color: var(--color);
@@ -69,12 +74,12 @@
 
     /* links */
     --link-color: var(--primary-color);
-    --link-background-color: transparent;
+    --link-background: transparent;
     --link-text-decoration: none;
     --link-font-weight: normal;
-    --link-color-hover: var(--primary-color);
-    --link-background-color-hover: transparent;
-    --link-text-decoration-hover: underline;
+        --link-color-hover: var(--primary-color);
+        --link-background-hover: transparent;
+        --link-text-decoration-hover: underline;
 
     /* forms */
     --input-field-border-color: #a4a4a4;
@@ -84,16 +89,25 @@
     --input-placeholder-color: grey;
 
     --button-color: white;
-    --button-font-weight: bold;
-    --button-background-color: var(--primary-color);
-    --button-border-radius: 6px;
+    --button-background: var(--primary-color);
     --button-border-color: var(--primary-color-dark);
-    --button-color-hover: white;
-    --button-background-color-hover: var(--primary-color-light);
+    --button-font-weight: bold;
+    --button-border-radius: 6px;
+        --button-color-hover: white;
+        --button-background-hover: var(--primary-color-light);
+        --button-border-color-hover: var(--primary-color-dark);
+
+    --button-outlined-color: var(--primary-color);
+    --button-outlined-background: transparent;
+    --button-outlined-border-color: var(--primary-color);
+        --button-outlined-color-hover: var(--primary-color-light);
+        --button-outlined-background-hover: transparent;
+        --button-outlined-border-color-hover: var(--primary-color-light);
+
 
     /* other */
     --focus-color: black;
-    --focus-background-color: #ffff56;
+    --focus-background: #ffff56;
     --error-color: darkred;
     --success-color: darkgreen;
 
@@ -350,7 +364,7 @@ p:first-child {
 a {
     color: var(--link-color);
     text-decoration: var(--link-text-decoration);
-    background: var(--link-background-color);
+    background: var(--link-background);
     transition: var(--transition);
     font-weight: var(--link-font-weight);
 }
@@ -360,7 +374,7 @@ a:focus,
 a:hover {
     color: var(--link-color-hover);
     text-decoration: var(--link-text-decoration-hover);
-    background: var(--link-background-color-hover);
+    background: var(--link-background-hover);
 }
 
 /* ---------------- Text specials
@@ -625,7 +639,8 @@ input[type="week"],
 input[type="color"],
 select,
 textarea {
-    width: 100%;
+    /*width: 100%;*/
+    /*display: block;*/
     padding: 5px 6px;
     border: 1px solid var(--input-field-border-color);
     border-radius: var(--input-field-border-radius);
@@ -738,7 +753,7 @@ input[type="file"] {
 .input[disabled] {
     border-color: #ccc;
     cursor: not-allowed;
-    background-color: #eee;
+    background: #eee;
 }
 
 .input[invalid] {
@@ -759,11 +774,11 @@ a.button {
     width: auto;
     max-width: 100%;
     margin: 0;
-    padding: 8px 25px 8px;
+    padding: 5px 25px 5px;
     border-radius: var(--button-border-radius);
     border: 1px solid var(--button-border-color);
     transition: var(--transition);
-    background: var(--button-background-color);
+    background: var(--button-background);
 
     font-family: var(--font-family);
     font-size: var(--font-size);
@@ -779,17 +794,37 @@ input[type="button"]:hover,
 button:hover,
 a.button:hover {
     cursor: pointer;
-    background-color: var(--button-background-color-hover);
+    background: var(--button-background-hover);
 
     color: var(--button-color-hover);
     text-decoration: none;
+}
+
+input[type="submit"].outlined,
+input[type="reset"].outlined,
+input[type="button"].outlined,
+button.outlined,
+a.button.outlined {
+    color: var(--button-outlined-color);
+    background: var(--button-outlined-background);
+    border-color: var(--button-outlined-border-color);
+}
+
+input[type="submit"].outlined:hover,
+input[type="reset"].outlined:hover,
+input[type="button"].outlined:hover,
+button.outlined:hover,
+a.button.outlined:hover {
+    color: var(--button-outlined-color-hover);
+    background: var(--button-outlined-background-hover);
+    border-color: var(--button-outlined-border-color-hover);
 }
 
 input[type="submit"]:active,
 input[type="reset"]:active,
 button:active,
 .button:active {
-    background-color: var(--button-background-color-hover);
+    background: var(--button-background-hover);
     /*border-color: #ff3300;*/
 
     color: white;
@@ -800,7 +835,7 @@ input[type="reset"]:focus,
 input[type="button"]:focus,
 button:focus,
 .button:focus {
-    background: var(--button-background-color-hover);
+    background: var(--button-background-hover);
     outline: 1px dotted black;
     outline-offset: 2px;
 
@@ -867,17 +902,17 @@ label,
 .form-buttons {
     display: block;
     vertical-align: top;
-    margin-top: 2rem;
 }
 
+.form-wrap-label {}
 .form-wrap-inputs {
-    padding-top: 5px;
+    /*padding-top: 5px;*/
 }
 
 .form-wrap-inputs label,
 .form-wrap-inputs .label {
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 }
 .form-wrap-inputs label:last-child,
 .form-wrap-inputs .label:last-child {
@@ -916,55 +951,102 @@ label,
     margin-bottom: 0;
 }
 
+/* wraps label and input */
+.form-group:not(:last-child) {
+    margin-bottom: 2rem;
+}
 
 /* Extra optional class "form-layout-columns" for layout in two columns on desktop
  */
 @media (min-width: 600px) {
 
-    form.form-layout-columns {
+    /* grid, horizontal */
+    form.form-layout-grid {
+        /*display: grid;*/
+        /*grid-template-columns: 3fr 7fr;*/
+        /*gap: 15px 20px; */
+    }
+    .form-layout-grid .form-group {
+        margin-bottom: 2rem;
         display: grid;
-        grid-template-columns: 3fr 7fr;
-        gap: 15px 20px; /* adapt also error top margin */
+        grid-template-columns: 1fr 2fr; /* adapt proportion */
     }
 
-    .form-layout-columns > label,
-    .form-layout-columns > .label {
+    .form-layout-grid > label,
+    .form-layout-grid > .label {
         margin-top: 0;
         padding-top: 5px; /* to align with field text */
         /*text-align: right; */
     }
 
-    .form-layout-columns .form-position-left {
+    .form-layout-grid .form-group-input {
+        grid-column: 2;
+    }
+
+    .form-layout-grid .form-position-left {
         /*grid-column: 1 / span 1;*/
-        grid-column-start: 1;
+        /*grid-column-start: 1;*/
     }
 
-    .form-layout-columns .form-position-right,
-    .form-layout-columns .form-error,
-    .form-layout-columns .form-description {
+    .form-layout-grid .form-position-right,
+    .form-layout-grid .form-error,
+    .form-layout-grid .form-description {
         padding-top: 0;
-        grid-column-start: 2;
-        margin-top: -8px;
+        /*grid-column-start: 2;*/
     }
 
-    .form-layout-columns .form-position-fullwidth {
-        grid-column: 1 / span 2;
+    .form-layout-grid .form-position-fullwidth {
+        /*grid-column: 1 / span 2;*/
     }
 
-    .form-layout-columns .form-buttons {
-        grid-column-start: 2;
+    .form-layout-grid .form-buttons {
+        /*grid-column-start: 2;*/
         margin-top: 0;
     }
 
-    .form-layout-columns .label-checkbox,
-    .form-layout-columns .label-radio,
-    .form-layout-columns .label.wrap-checkbox {
+    .form-layout-grid .label-checkbox,
+    .form-layout-grid .label-radio,
+    .form-layout-grid .label.wrap-checkbox {
         text-align: left; /* when using option */
     }
 
-    form.form-layout-single-line {
+}
+
+/* inline form, all on one line */
+.form-layout-inline label {
+    margin-top: 2rem;
+}
+.form-layout-inline label:first-child { /* keep as separate rule */
+    margin-top: 0;
+}
+.form-layout-inline input[type="submit"] {
+    display: block;
+    margin-top: 1rem;
+}
+
+@media (min-width: 600px) {
+
+    .form-layout-inline {
         display: flex;
         align-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: right;
+        gap: 6px;
+    }
+    .form-layout-inline label {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .form-layout-inline input[type="email"],
+    .form-layout-inline input[type="text"]{
+        width: 200px;
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    .form-layout-inline input[type="submit"] {
+        display: inline-block;
+        margin-top: 0;
     }
 
 }
@@ -991,7 +1073,7 @@ label,
 
 .site-logo a:hover {
     text-decoration: none;
-    background-color: transparent;
+    background: transparent;
 }
 
 .site-logo a img {
@@ -1127,8 +1209,8 @@ label,
 
 /* ---------------- Show / hide
 */
-/* Visually hidden, shown only for screen readers or when focus received using tab */
-.visually-hidden:not(:focus):not(:active) {
+/* Visually hidden, screen reader only or when focus received using tab */
+.screenreader-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
