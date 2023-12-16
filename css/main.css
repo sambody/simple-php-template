@@ -50,9 +50,11 @@
     --orange: #d3982d;
     --orange-light: #e5b969;
     --orange-dark: #ab7411;
+    --beige: #e5e5cb;
     --brown: #654129;
     --brown-light: #8d6042;
     --brown-dark: #492d1b;
+    --pink: #fdadb8;
     --purple: #792479;
     --purple-light: #9f469f;
     --purple-dark: #5e1d5e;
@@ -81,9 +83,20 @@
         --link-background-hover: transparent;
         --link-text-decoration-hover: underline;
 
+    --nav-link-font-size: var(--font-size);
+    --nav-link-line-height: var(--line-height);
+    --nav-link-color: var(--primary-color);
+    --nav-link-background: var(--grey-light);
+    --nav-link-text-decoration: none;
+    --nav-link-font-weight: normal;
+        --nav-link-color-hover: var(--primary-color);
+        --nav-link-background-hover: var(--grey-light);
+        --nav-link-text-decoration-hover: underline;
+
     /* forms */
     --input-field-border-color: #a4a4a4;
     --input-field-border-radius: 5px;
+    --ipnut-field-color: var(--color);
     --input-field-font-size: var(--font-size);
     --input-field-line-height: var(--line-height);
     --input-placeholder-color: grey;
@@ -104,14 +117,15 @@
         --button-outlined-background-hover: transparent;
         --button-outlined-border-color-hover: var(--primary-color-light);
 
-
     /* other */
     --focus-color: black;
     --focus-background: #ffff56;
     --error-color: darkred;
     --success-color: darkgreen;
 
+    --border-width: 1px;
     --border-color: grey;
+    --image-border-width: 1px;
     --image-border-color: #d0d0d0;
     --radius: 4px;
     --box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
@@ -149,8 +163,8 @@ body {
 
 .page-section {
     /*outline: 1px solid green;*/
-    padding-left: var(--column-gap);
-    padding-right: var(--column-gap);
+    /*padding-left: var(--column-gap);*/
+    /*padding-right: var(--column-gap);*/
 }
 
 .page-section > .container {
@@ -170,6 +184,7 @@ body {
 /* content columns, if any */
 .content-main,
 .content-sub {
+    padding: 3rem var(--column-gap);
     padding-bottom: var(--row-gap);
 }
 
@@ -177,7 +192,7 @@ body {
 */
 @media (min-width: 600px) {
     .page-section > .container {
-        width: var(--container-max-width);
+        width: 100%;
         max-width: var(--container-max-width);
         margin-left: auto;
         margin-right: auto;
@@ -332,7 +347,6 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 3rem;
     line-height: 1;
-    color: var(--primary-color);
 }
 
 h2 {
@@ -477,6 +491,11 @@ dd {
 ==============================================
 */
 /*<editor-fold desc="Images, media">*/
+figure,
+figcaption {
+    margin: 0;
+    padding: 0;
+}
 img,
 svg {
     max-width: 100%;
@@ -485,6 +504,10 @@ svg {
 
 img {
     vertical-align: middle;
+}
+
+img.img-border {
+    border: var(--image-border-width) solid var(--image-border-color);
 }
 
 img.center {
@@ -604,11 +627,14 @@ thead:first-child tr td {
 ==============================================
 */
 /*<editor-fold desc="Forms - Fonts">*/
-form,
+form {
+    font-size: var(--font-size);
+    line-height: var(--input-field-line-height);
+}
 input,
 select,
 textarea {
-    color: var(--color);
+    color: var(--ipnut-field-color);
     font-size: var(--font-size);
     line-height: var(--input-field-line-height);
 }
@@ -1057,9 +1083,9 @@ label,
  SECTION - SITE HEADER
 ==============================================
 */
-/*<editor-fold desc="Section - Site header">*/
+/*<editor-fold desc="Section - Header">*/
 .page-section-header {
-    border-top: 8px solid var(--primary-color);
+    /*border-top: 8px solid var(--primary-color);*/
 }
 
 /* ---------------- Site logo
@@ -1106,17 +1132,17 @@ label,
     list-style: none;
     background: none;
     border-bottom: 1px solid #d9d9d9;
-
-    font-size: 1.6rem;
-    line-height: 1.4;
 }
 
 .nav-main a {
     display: block;
     margin: 0;
     padding: 7px 10px;
-    background: #ececec;
-    text-decoration: none;
+    background: var(--nav-link-background);
+
+    font-size: var(--nav-link-font-size);
+    line-height: var(--nav-link-font-weight);
+    text-decoration: var(--nav-link-text-decoration);
 }
 /* current page */
 .nav-main .current > a {
@@ -1190,6 +1216,10 @@ label,
 ==============================================
 */
 /*<editor-fold desc="Helper classes">*/
+
+.border { /* use .img-border for images */
+    border: var(--border-width) solid var(--border-color);
+}
 .clear {
     clear: both;
 }
