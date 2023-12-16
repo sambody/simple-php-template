@@ -3,12 +3,11 @@
 - Add menu dropdown (on click for accessibility)
 - Add mobile menu other from html template
 - Add search form with icon
-- Add wrapper for inputs, to contain errors etc?
 - Add other special form inputs (range, date,...)
-
 - Other components? See Pico, Bootstrap, Foundation... (but not too much!)
-- SASS version? like foundation/bootstrap, to get separate css files and functions/mixins?
 - Add custom checkboxes, radios, slider checkboxes?
+- 
+- SASS version? like foundation/bootstrap, to get separate css files and functions/mixins?
 
 # Todo NewProject
 

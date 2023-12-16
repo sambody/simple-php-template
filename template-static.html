@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TemplateStatic</title>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
-
-<body>
-
+<body class="page-home">
 <header class="page-section page-section-header">
     <div class="container">
         <div class="site-logo"><a href="/" title="Home"><img src="images/temp-logo.png" alt="Logo"></a></div>
         <nav class="nav-main">
             <ul role="menu">
-                <li role="menuitem" class="current"><a href="#" title="">Home</a></li>
+                <li role="menuitem" class="is-active"><a href="#" title="">Home</a></li>
                 <li role="menuitem"><a href="#" title="">Page one</a></li>
                 <li role="menuitem"><a href="#" title="">Page two</a></li>
             </ul>
@@ -33,15 +32,22 @@
         <div class="content-main" role="main">
 
             <h1>PageTitle</h1>
-            <p>Lorem Ipsum is slechts <a href="#">een proeftekst</a> uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. </p>
-            <p>David n’a pas fait <strong>grand chose</strong>, il a juste créé un embryon de programme. Mais ce programme s’est développé lui-même. Comme l’ordinateur de David n’était pas suffisant, il a utilisé le réseau pour s’installer sur les autres ordinateurs. Il a grandi alors de manière exponentielle et le voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
+            <p>Lorem Ipsum is slechts <a href="#">een proeftekst</a> uit het drukkerij- en zetterijwezen. Lorem Ipsum is
+                de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak
+                met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf
+                eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. </p>
+            <p>David n’a pas fait <strong>grand chose</strong>, il a juste créé un embryon de programme. Mais ce
+                programme s’est développé lui-même. Comme l’ordinateur de David n’était pas suffisant, il a utilisé le
+                réseau pour s’installer sur les autres ordinateurs. Il a grandi alors de manière exponentielle et le
+                voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
 
             <hr>
 
-            <h2>A login form - inline</h2>
+            <h2>Form - inline layout</h2>
             <form class="form-layout-inline" id="form-login" method="post" action="#">
                 <label for="login-user-name2">User name</label>
-                <input type="text" name="login-user-name" id="login-user-name2" autocomplete="username" invalid required>
+                <input type="text" name="login-user-name" id="login-user-name2" autocomplete="username" invalid
+                       required>
                 <label for="login-password2">Your password</label>
                 <input type="text" name="login-password" id="login-password2" autocomplete="current-password" required>
                 <input type="submit" value="Send">
@@ -49,15 +55,17 @@
 
             <hr>
 
-            <h2>A login form - stacked</h2>
+            <h2>Form - stacked layout</h2>
             <form class="form-layout-stacked" id="form-login2" method="post" action="#">
                 <div class="form-group">
                     <label for="login-user-name">User name</label>
-                    <input type="text" name="login-user-name" id="login-user-name" autocomplete="username" invalid required>
+                    <input type="text" name="login-user-name" id="login-user-name" autocomplete="username" invalid
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="login-password">Your password</label>
-                    <input type="text" name="login-password" id="login-password" autocomplete="current-password" required>
+                    <input type="text" name="login-password" id="login-password" autocomplete="current-password"
+                           required>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Send">
@@ -66,123 +74,126 @@
 
             <hr>
 
-            <h2>A form</h2>
+            <h2>Form - grid / horizontal layout</h2>
             <form class="form-layout-grid" id="form-contact" method="post" action="#">
                 <div class="form-group">
                     <div class="form-group-label">
-                    <label for="first-name">First name</label>
+                        <label for="first-name">First name</label>
                     </div>
                     <div class="form-group-input">
-                    <input type="text" name="first-name" id="first-name" placeholder="first name" autocomplete="given-name" required>
+                        <input type="text" name="first-name" id="first-name" placeholder="first name"
+                               autocomplete="given-name" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-label">
-                    <label for="last-name">Last name (disabled)</label>
+                        <label for="last-name">Last name (disabled)</label>
                     </div>
                     <div class="form-group-input">
-                    <input type="text" name="last-name" id="last-name" placeholder="last name" autocomplete="family-name" disabled required>
+                        <input type="text" name="last-name" id="last-name" placeholder="last name"
+                               autocomplete="family-name" disabled required>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-label">
-                    <label for="contact-search">Search</label>
+                        <label for="contact-search">Search</label>
                     </div>
                     <div class="form-group-input">
-                    <input type="search" name="contact-search" id="contact-search">
+                        <input type="search" name="contact-search" id="contact-search">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-label">
-                    <label for="contact-email">E-mail</label>
+                        <label for="contact-email">E-mail</label>
                     </div>
                     <div class="form-group-input">
-                    <input type="email" name="contact-email" id="contact-email" autocomplete="email" required>
+                        <input class="is-error" type="email" name="contact-email" id="contact-email" autocomplete="email" required>
+                        <div class="form-error">An error message</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-label">
-                    <label for="login-pwd">Create a password</label>
+                        <label for="login-pwd">Create a password</label>
                     </div>
                     <div class="form-group-input">
-                    <input type="password" name="login-pwd" id="login-pwd" class="size-small">
-                    <label class="label-checkbox form-description"><input type="checkbox" name="rememberme" value="rememberme" id="rememberme">Remember me</label>
-                    <p class="recover-password form-description"><a href="#">Forgot password?</a></p>
+                        <input type="password" name="login-pwd" id="login-pwd" class="size-small">
+                        <label class="label-checkbox form-description"><input type="checkbox" name="rememberme"
+                                                                              value="rememberme" id="rememberme">Remember
+                            me</label>
+                        <p class="recover-password form-description"><a href="#">Forgot password?</a></p>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-label">
-                    <div class="label">Animal</div>
+                        <div class="label">Animal</div>
                     </div>
                     <div class="form-group-input">
-                    <div class="form-wrap-inputs" role="radiogroup">
-                        <label class="label-radio"><input type="radio" name="animal" value="cat" id="cat">Cat</label>
-                        <label class="label-radio"><input type="radio" name="animal" value="dog" id="dog">Dog</label>
-                        <label class="label-radio"><input type="radio" name="animal" value="mouse" id="mouse" disabled>Mouse (disabled)</label>
-                    </div>
+                        <div class="form-wrap-inputs" role="radiogroup">
+                            <label class="label-radio"><input type="radio" name="animal" value="cat"
+                                                              id="cat">Cat</label>
+                            <label class="label-radio"><input type="radio" name="animal" value="dog"
+                                                              id="dog">Dog</label>
+                            <label class="label-radio"><input type="radio" name="animal" value="mouse" id="mouse"
+                                                              disabled>Mouse (disabled)</label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-label">
-                    <div class="label">Fruit (inline)</div>
+                        <div class="label">Fruit (inline)</div>
                     </div>
                     <div class="form-group-input">
-                    <div class="form-wrap-inputs inline" role="radiogroup">
-                        <label class="label-radio"><input type="radio" name="fruit" value="apple" id="apple">Apple</label>
-                        <label class="label-radio"><input type="radio" name="fruit" value="pear" id="pear">Pear</label>
-                    </div>
+                        <div class="form-wrap-inputs inline" role="radiogroup">
+                            <label class="label-radio"><input type="radio" name="fruit" value="apple"
+                                                              id="apple">Apple</label>
+                            <label class="label-radio"><input type="radio" name="fruit" value="pear"
+                                                              id="pear">Pear</label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-label">
-                    <div class="label">Your choice among these three beautiful options</div>
+                        <div class="label">Your choice among these three beautiful options</div>
                     </div>
                     <div class="form-group-input">
-                    <div class="form-wrap-inputs">
-                        <label class="label-checkbox"><input type="checkbox" name="checkies" value="one" id="one">One</label>
-                        <label class="label-checkbox"><input type="checkbox" name="checkies" value="two" id="two">Two</label>
-                        <label class="label-checkbox"><input type="checkbox" name="checkies" value="three" id="three" disabled>Three (disabled)</label>
-                    </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group-input">
-                    <label class="label wrap-checkbox form-position-fullwidth">
-                        <input type="checkbox" name="acceptme" value="acceptme" id="acceptme">
-                        Yes, I have read the <a href="#">document</a> et I accept the whole document.
-                    </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group-input">
-                    <label class="label-checkbox form-position-right" for="acceptterms">
-                        <input type="checkbox" name="acceptterms" value="acceptterms" id="acceptterms">
-                        Yes, I agree with the <a href="#">document</a>.
-                    </label>
+                        <div class="form-wrap-inputs">
+                            <label class="label-checkbox"><input type="checkbox" name="checkies" value="one" id="one">One</label>
+                            <label class="label-checkbox"><input type="checkbox" name="checkies" value="two" id="two">Two</label>
+                            <label class="label-checkbox"><input type="checkbox" name="checkies" value="three"
+                                                                 id="three" disabled>Three (disabled)</label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-label">
-                    <label for="myselect">Choose</label>
+                        <label for="myselect">Choose</label>
                     </div>
                     <div class="form-group-input">
-                    <select class="myselect" name="myselect" id="myselect">
-                        <option value="" selected disabled>-- Please select an option --</option>
-                        <option value="a">Number one</option>
-                        <option value="a">Number two</option>
-                        <option value="b">Number three</option>
-                        <option value="c">Number four</option>
-                        <optgroup label="A group">
-                            <option value="d">Number five</option>
-                            <option value="e">Number six</option>
-                        </optgroup>
-                    </select>
+                        <select class="myselect" name="myselect" id="myselect">
+                            <option value="" selected disabled>-- Please select an option --</option>
+                            <option value="a">Number one</option>
+                            <option value="a">Number two</option>
+                            <option value="b">Number three</option>
+                            <option value="c">Number four</option>
+                            <optgroup label="A group">
+                                <option value="d">Number five</option>
+                                <option value="e">Number six</option>
+                            </optgroup>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-input">
                         <label for="contact-msg">Your message</label>
                         <textarea name="contact-msg" id="contact-msg" cols="30" rows="10" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-input">
+                        <label class="label-checkbox form-position-right" for="acceptterms">
+                            <input type="checkbox" name="acceptterms" value="acceptterms" id="acceptterms">
+                            Yes, I agree with the <a href="#">document</a>.
+                        </label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -196,21 +207,36 @@
                 </div>
             </form>
             <hr>
-            <div class="grid">
-                <div>Simple grid</div>
-                <div class="grid-span-2">Span 2</div>
-                <div>Span 1</div>
-                <div>Span 1</div>
-                <div>Span 1</div>
+            <p>Simple grid, no defined number of rows, single row (on desktop)</p>
+            <div class="row">
+                <div class="column span-2">Span 2</div>
+                <div class="column">Span 1</div>
+                <div class="column">Span 1</div>
+                <div class="column">Span 1</div>
+                <div class="column">Span 1</div>
+            </div>
+            <p>grid with three columns (on desktop)</p>
+            <div class="row-3-cols">
+                <div class="column span-2">Span 2</div>
+                <div class="column">Span 1</div>
+                <div class="column">Span 1</div>
+                <div class="column">Span 1</div>
+                <div class="column">Span 1</div>
             </div>
         </div>
 
         <div class="content-sub">
             <aside class="widget">
-                <p>A widget or sidebar component</p>
+                <p>A widget or sidebar component (aside)</p>
             </aside>
         </div>
 
+    </div>
+</section>
+
+<section class="page-section">
+    <div class="container fluid">
+        Fluid, full width container
     </div>
 </section>
 
