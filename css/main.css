@@ -372,6 +372,18 @@ body {
     .span-full {
         grid-column: 1 / -1;
     }
+    .start-at-1 {grid-column-start: 1;}
+    .start-at-2 {grid-column-start: 2;}
+    .start-at-3 {grid-column-start: 3;}
+    .start-at-4 {grid-column-start: 4;}
+    .start-at-5 {grid-column-start: 5;}
+    .start-at-6 {grid-column-start: 6;}
+    .start-at-7 {grid-column-start: 7;}
+    .start-at-8 {grid-column-start: 8;}
+    .start-at-9 {grid-column-start: 9;}
+    .start-at-10 {grid-column-start: 10;}
+    .start-at-11 {grid-column-start: 11;}
+    .start-at-12 {grid-column-start: 12;}
 
 }
 /*</editor-fold>*/
