@@ -249,20 +249,20 @@ body {
    parent .row, child .column (with optional .span-2...)
 
    Option 2, one or more rows of children, predefined number of columns:
-   parent .row-3-cols, child .column (with optional .span-2...)
+   parent .row-3-columns, child .column (with optional .span-2...)
 */
 .row,
-.row-2-cols,
-.row-3-cols,
-.row-4-cols,
-.row-5-cols,
-.row-6-cols,
-.row-7-cols,
-.row-8-cols,
-.row-9-cols,
-.row-10-cols,
-.row-11-cols,
-.row-12-cols {
+.row-2-columns,
+.row-3-columns,
+.row-4-columns,
+.row-5-columns,
+.row-6-columns,
+.row-7-columns,
+.row-8-columns,
+.row-9-columns,
+.row-10-columns,
+.row-11-columns,
+.row-12-columns {
     margin-bottom: 0;
     padding-bottom: var(--row-gap);
 }
@@ -279,54 +279,54 @@ body {
 @media (min-width: 600px) {
 
     .row,
-    .row-2-cols,
-    .row-3-cols,
-    .row-4-cols,
-    .row-5-cols,
-    .row-6-cols,
-    .row-7-cols,
-    .row-8-cols,
-    .row-9-cols,
-    .row-10-cols,
-    .row-11-cols,
-    .row-12-cols {
+    .row-2-columns,
+    .row-3-columns,
+    .row-4-columns,
+    .row-5-columns,
+    .row-6-columns,
+    .row-7-columns,
+    .row-8-columns,
+    .row-9-columns,
+    .row-10-columns,
+    .row-11-columns,
+    .row-12-columns {
         display: grid;
         gap: var(--row-gap) var(--column-gap);
     }
     .row {
         grid-template-columns: repeat(auto-fit, minmax(0%, 1fr)); /* single row, any number */
     }
-    .row-2-cols {
+    .row-2-columns {
         grid-template-columns: repeat(2, 1fr);
     }
-    .row-3-cols {
+    .row-3-columns {
         grid-template-columns: repeat(3, 1fr);
     }
-    .row-4-cols {
+    .row-4-columns {
         grid-template-columns: repeat(4, 1fr);
     }
-    .row-5-cols {
+    .row-5-columns {
         grid-template-columns: repeat(5, 1fr);
     }
-    .row-6-cols {
+    .row-6-columns {
         grid-template-columns: repeat(6, 1fr);
     }
-    .row-7-cols {
+    .row-7-columns {
         grid-template-columns: repeat(7, 1fr);
     }
-    .row-8-cols {
+    .row-8-columns {
         grid-template-columns: repeat(8, 1fr);
     }
-    .row-9-cols {
+    .row-9-columns {
         grid-template-columns: repeat(9, 1fr);
     }
-    .row-10-cols {
+    .row-10-columns {
         grid-template-columns: repeat(10, 1fr);
     }
-    .row-11-cols {
+    .row-11-columns {
         grid-template-columns: repeat(11, 1fr);
     }
-    .row-12-cols {
+    .row-12-columns {
         grid-template-columns: repeat(12, 1fr);
     }
     .column {
