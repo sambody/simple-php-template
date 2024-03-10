@@ -14,43 +14,77 @@ class UserService
         $this->usersDAO = new UsersDAO();
     }
 
-    public function addUser($naam, $paswoord): bool
+    public function getUser(int $id): User|bool
     {
-        if ($this->usersDAO->getUserByName($naam)) {
-            return false;
+        $user = $this->usersDAO->getUserById($id);
+        if ($user) {
+            return new User(
+                $user['id'],
+                $user['voornaam'],
+                $user['achternaam'],
+                $user['email'],
+                $user['straat'],
+                $user['huisnummer'],
+                $user['postcode'],
+                $user['plaats'],
+                $user['telefoon'],
+                $user['wachtwoord']
+            );
         }
-        $this->usersDAO->addUser($naam, $paswoord);
-        return true;
+        return false;
     }
 
-    public function validateUserPassword(string $naam, string $paswoord): bool
+    public function getUserByEmail(string $email): User|bool
     {
-        $user = $this->usersDAO->getUserByName($naam);
+        $user = $this->usersDAO->getUserByEmail($email);
+        if ($user) {
+            return new User(
+                $user['id'],
+                $user['voornaam'],
+                $user['achternaam'],
+                $user['email'],
+                $user['straat'],
+                $user['huisnummer'],
+                $user['postcode'],
+                $user['plaats'],
+                $user['telefoon'],
+                $user['wachtwoord']
+            );
+        }
+        return false;
+    }
+
+    //public function getPlaats(string $postcode): bool|array
+    //{
+    //    return $this->usersDAO->getPlaatsByPostcode($postcode);
+    //}
+
+    public function validatePassword(string $email, string $paswoord): bool
+    {
+        $user = $this->usersDAO->getUserByEmail($email);
         if ($user) {
             return password_verify($paswoord, $user['wachtwoord']);
         }
         return false;
     }
 
-    public function getUser(string $naam): User|bool
-    {
-        $result = $this->usersDAO->getUserByName($naam);
-        if ($result) {
-            return new User($result['gebruikersnaam'], $result['wachtwoord']);
+    public function addUser(
+        string $voornaam,
+        string $naam,
+        string $email,
+        string $straat,
+        int $huisnummer,
+        int $plaatsId,
+        string $tel,
+        string $paswoord
+    ): ?int {
+        // Add user, return id
+        $result = $this->usersDAO->addUser($voornaam, $naam, $email, $straat, $huisnummer, $plaatsId, $tel, $paswoord);
+
+        if (!$result) {
+            return null;
         }
-        return false;
+        return $result;
     }
 
-    public function getAllUsers(): bool|array
-    {
-        $result = $this->usersDAO->getAllUsers();
-        if ($result) {
-            $users = [];
-            foreach ($result as $item) {
-                $users[] = new User($item['gebruikersnaam'], $item['wachtwoord']);
-            }
-            return $users;
-        }
-        return false;
-    }
 }
