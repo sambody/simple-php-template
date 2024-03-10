@@ -12,6 +12,7 @@ abstract class AbstractDBHandler
 
     private function connect(): void
     {
+        // todo: add if/else for dev/prod environment => different config file
         $config = require 'config-db-local.php';
         $dsn = vsprintf('mysql:host=%s;port=%d;dbname=%s;charset=%s', $config['DBConnection']);
         $this->pdo = new PDO(
@@ -38,6 +39,7 @@ abstract class AbstractDBHandler
         }
         $this->disconnect();
 
+        // return the resulting rows
         return $result;
     }
 
@@ -50,6 +52,7 @@ abstract class AbstractDBHandler
         $affected = $statement->rowCount();
         $this->disconnect();
 
+        // return the created id or false
         return ($affected === 1) ? $id : false;
     }
 
@@ -60,6 +63,7 @@ abstract class AbstractDBHandler
         $statement->execute($placeholders);
         $this->disconnect();
 
+        // return the number of updated rows
         return $statement->rowCount();
     }
 
@@ -70,8 +74,9 @@ abstract class AbstractDBHandler
         $startCount = $statement->rowCount();
         $statement->execute($placeholders);
         $this->disconnect();
-
         $stopCount = $statement->rowCount();
+
+        // return the number of deleted rows
         return $startCount - $stopCount;
     }
 

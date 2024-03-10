@@ -6,6 +6,7 @@ use App\Entities\User;
 
 class Session
 {
+    // internal use only
     private static function start(): void
     {
         if (session_status() === PHP_SESSION_NONE) {
@@ -13,6 +14,7 @@ class Session
         }
     }
 
+    // Example of use: Session::get('user');
     public static function get(string $key): ?string
     {
         self::start();

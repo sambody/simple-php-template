@@ -13,7 +13,9 @@ namespace App\Business;
 class FormValidator
 {
     /*
-     * Use: ValidationService::string('string')
+     * Use:
+     * ValidationService::string($yourVar)
+     * ValidationService::string($yourVar, 6, 255)
      * */
     public static function string($value, $minimumChars = 1, $maximumChars = INF): bool
     {
