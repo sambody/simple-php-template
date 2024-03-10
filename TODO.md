@@ -19,6 +19,7 @@
 - data layer: DBConfig, file/class "ItemDAO" - connect to DB with try/catch (+ tests), check exceptions
 - business: file/class "ItemService" per task, uses DAO (+ tests)
 - presentation: html (twig?)
+- abstractDBHandler: add possibility to add extra options: fetch_column, fetch_key_pair, fetch_unique, fetch_group
 - controllers: root files, logic (use service) + include presentation (or redirect after edit)
 - Namespaces, auto-loading
 - Add functionalities:

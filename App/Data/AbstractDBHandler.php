@@ -12,7 +12,7 @@ abstract class AbstractDBHandler
 
     private function connect(): void
     {
-        $config = require 'config.php';
+        $config = require 'config-db-local.php';
         $dsn = vsprintf('mysql:host=%s;port=%d;dbname=%s;charset=%s', $config['DBConnection']);
         $this->pdo = new PDO(
             $dsn, $config['DBUsername'], $config['DBPassword'], $config['DBOptions']
@@ -23,53 +23,53 @@ abstract class AbstractDBHandler
     {
         $this->pdo = null;
     }
-    // Todo: add possibility to add extra options: fetch_column, fetch_key_pair, fetch_unique, fetch_group
 
-    protected function read(string $sql, array $bindings = [], bool $multipleRows = true): bool|array
+    // CRUD basic operations: Create, Read, Update, Delete
+    protected function read(string $sql, array $placeholders = [], bool $multipleRows = true): bool|array
     {
-        self::connect();
+        $this->connect();
         $statement = $this->pdo->prepare($sql);
-        $statement->execute($bindings);
+        $statement->execute($placeholders);
 
         if ($multipleRows) {
             $result = $statement->fetchAll();
         } else {
             $result = $statement->fetch();
         }
-        self::disconnect();
+        $this->disconnect();
 
         return $result;
     }
 
-    protected function create(string $sql, array $bindings = []): bool|int
+    protected function create(string $sql, array $placeholders = []): bool|int
     {
-        self::connect();
+        $this->connect();
         $statement = $this->pdo->prepare($sql);
-        $statement->execute($bindings);
+        $statement->execute($placeholders);
         $id = (int) $this->pdo->lastInsertId();
         $affected = $statement->rowCount();
-        self::disconnect();
+        $this->disconnect();
 
         return ($affected === 1) ? $id : false;
     }
 
-    protected function update(string $sql, array $bindings = []): int
+    protected function update(string $sql, array $placeholders = []): int
     {
-        self::connect();
+        $this->connect();
         $statement = $this->pdo->prepare($sql);
-        $statement->execute($bindings);
-        self::disconnect();
+        $statement->execute($placeholders);
+        $this->disconnect();
 
         return $statement->rowCount();
     }
 
-    protected function delete(string $sql, array $bindings = []): int
+    protected function delete(string $sql, array $placeholders = []): int
     {
-        self::connect();
+        $this->connect();
         $statement = $this->pdo->prepare($sql);
         $startCount = $statement->rowCount();
-        $statement->execute($bindings);
-        self::disconnect();
+        $statement->execute($placeholders);
+        $this->disconnect();
 
         $stopCount = $statement->rowCount();
         return $startCount - $stopCount;
