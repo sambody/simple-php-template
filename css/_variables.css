@@ -40,6 +40,9 @@
     --teal: #107979;
     --teal-light: #1fa6a6;
     --teal-dark: #0d5656;
+    --green: #469823;
+    --green-light: #82e15a;
+    --green-dark: #295d14;
     --yellow: #e5d846;
     --yellow-light: #ecec86;
     --yellow-dark: #abab17;
@@ -97,7 +100,7 @@
     /* forms */
     --input-field-border-color: #a4a4a4;
     --input-field-border-radius: 5px;
-    --ipnut-field-color: var(--color);
+    --input-field-color: var(--color);
     --input-field-font-size: var(--font-size);
     --input-field-line-height: var(--line-height);
     --input-placeholder-color: grey;

@@ -10,7 +10,7 @@ form {
 input,
 select,
 textarea {
-    color: var(--ipnut-field-color);
+    color: var(--input-field-color);
     font-size: var(--font-size);
     line-height: var(--input-field-line-height);
 }

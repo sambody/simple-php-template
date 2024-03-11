@@ -1,8 +1,8 @@
 
 
 - simplify method naming UsersDAO and UserService: get, getAll,...
-- User simplify _construct (use php8 feature)
-- separate css files? (later build process?)
+- User: simplify _construct (use php8 feature)
+- make View file/class? to set all on one line with parameters (template, content, title)
 
 - add dynamic year in footer
 - review form layout css
