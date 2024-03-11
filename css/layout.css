@@ -1,0 +1,93 @@
+/*
+==============================================
+ PAGE LAYOUT
+==============================================
+*/
+html {
+    box-sizing: border-box;
+    height: 100%;
+    /*height: 100vh;*/
+    padding: 0;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit; /* Universal box sizing with inheritance */
+    -webkit-tap-highlight-color: transparent; /* suppressing the tap highlight */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------- Page layout mobile first
+*/
+body {
+    min-height: 100%;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.page-section {
+    /*outline: 1px solid green;*/
+    /*padding-left: var(--column-gap);*/
+    /*padding-right: var(--column-gap);*/
+}
+
+.page-section > .container {
+    /*outline: 1px solid red;*/
+    padding: var(--row-gap) var(--column-gap);
+}
+
+.page-section-content {
+    background: #ececec;
+}
+
+.page-section-content > .container {
+    padding-bottom: 1px;
+}
+
+/* content columns, if any */
+.content-main,
+.content-sub {
+    padding: 3rem var(--column-gap);
+    padding-bottom: var(--row-gap);
+}
+
+@media (min-width: 600px) {
+
+    .page-section > .container {
+        width: 100%;
+        max-width: var(--container-max-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .page-section > .container.fluid {
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: var(--column-gap);
+        padding-right: var(--column-gap);
+    }
+    /* content columns */
+    .page-section-content > .container {
+        display: grid;
+        grid-template-columns: 7fr 3fr;
+        justify-content: space-between;
+        gap: var(--column-gap);
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .content-main {
+        grid-column: 1;
+    }
+
+    .content-sub {
+        grid-column: 2 / span 1;
+    }
+
+    .content-main.content-full-width {
+        grid-column: 1 / -1;
+    }
+
+}

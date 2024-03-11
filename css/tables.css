@@ -1,0 +1,25 @@
+/*
+==============================================
+ TABLES
+*/
+table {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 6px 10px 7px 0;
+    border-top: 1px solid #D6D6D6;
+}
+
+th {
+    font-weight: bold;
+    vertical-align: top;
+    text-align: left;
+}
+
+thead:first-child tr th,
+thead:first-child tr td {
+    border-top: 0;
+}

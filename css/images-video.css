@@ -1,0 +1,53 @@
+/*
+==============================================
+ Images, media
+==============================================
+*/
+figure,
+figcaption {
+    margin: 0;
+    padding: 0;
+}
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+img {
+    vertical-align: middle;
+}
+img.img-border {
+    border: var(--image-border-width) solid var(--image-border-color);
+}
+img.center {
+    display: block;
+    margin: 0 auto 1rem;
+    clear: both;
+}
+.center img {
+    /* class on img container */
+    display: block;
+    margin: 0 auto;
+}
+img.image-styled {
+    border: 5px solid var(--primary-color);
+}
+
+a img {
+    transition: var(--transition);
+}
+a:hover img {
+    /*opacity: 0.8;*/
+}
+
+@media (min-width: 600px) {
+    .float-left {
+        float: left;
+        margin: 0 15px 5px 0;
+    }
+
+    .float-right {
+        float: right;
+        margin: 0 0 5px 15px;
+    }
+}

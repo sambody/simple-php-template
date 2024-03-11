@@ -1,0 +1,99 @@
+/*
+==============================================
+ SECTION - SITE HEADER
+==============================================
+*/
+.page-section-header {
+    /*border-top: 8px solid var(--primary-color);*/
+}
+
+/* ---------------- Site logo
+*/
+.site-logo {
+    margin-bottom: 1.5rem;
+    a {
+        display: inline-block;
+    }
+    a:hover {
+        text-decoration: none;
+        background: transparent;
+    }
+    img {
+        width: 40px;
+    }
+    a:hover img {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+/* ---------------- Main navigation
+*/
+.wrap-nav-main {
+    /*display: none;*/
+}
+.nav-main {
+    margin: 0;
+    padding: 0;
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background: none;
+        border-bottom: 1px solid #d9d9d9;
+    }
+    a {
+        display: block;
+        margin: 0;
+        padding: 7px 10px;
+        background: var(--nav-link-background);
+
+        font-size: var(--nav-link-font-size);
+        line-height: var(--nav-link-font-weight);
+        text-decoration: var(--nav-link-text-decoration);
+    }
+    .is-active > a {
+        background: #efc2d2;
+    }
+    a:active,
+    a:focus,
+    a:hover {
+        color: #000;
+        text-decoration: none;
+    }
+}
+
+@media (min-width: 600px) {
+
+    .page-section-header > .container {
+        height: 140px;
+        display: flex;
+        justify-content: left;
+        align-items: center; /* default is stretch */
+        gap: 4rem;
+    }
+    .site-logo {
+        margin-bottom: 0;
+    }
+    .nav-main {
+        /*margin-left: auto;*/
+
+        ul {
+            display: flex;
+            gap: 6px;
+        }
+        li {
+            border-bottom: none;
+        }
+    }
+
+}

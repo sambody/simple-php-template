@@ -1,0 +1,41 @@
+/*
+==============================================
+ MESSAGES - Errors and confirmations on top of page
+==============================================
+*/
+.message {
+    background: #eeeeee;
+    color: black;
+    margin: 0 0 30px 0;
+    padding: 20px;
+    font-size: var(--font-size);
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        color: inherit;
+    }
+    ul {
+        list-style: circle;
+        margin: 0 0 0 1rem;
+    }
+    li {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.message-error {
+    background: #f6d5d5;
+    color: var(--error-color);
+}
+.message-success {
+    background: #d2e7d2;
+    color: var(--success-color);
+}

@@ -1,0 +1,135 @@
+/*
+==============================================
+ CSS VARIABLES
+==============================================
+*/
+:root {
+    /* layout */
+    --container-max-width: 1100px;
+    --row-gap: 30px;
+    --row-gap-small: 15px;
+    --row-gap-large: 50px;
+    --column-gap: 20px;
+    --column-gap-small: 10px;
+    --column-gap-large: 30px;
+
+    /* brand colors */
+    --primary-color-lighter: #de8585; /* todo: adapt colors */
+    --primary-color-light: #c54545;
+    --primary-color: #982929;
+    --primary-color-dark: #731e1e;
+    --primary-color-darker: #491212;
+
+    --accent-color-lighter: #de8585;
+    --accent-color-light: #c54545;
+    --accent-color: #982929;
+    --accent-color-dark: #731e1e;
+    --accent-color-darker: #491212;
+
+    --secundary-color-light: var(--orange-light);
+    --secundary-color: var(--orange);
+    --secundary-color-dark: var(--orange-dark);
+
+    /* named colors, adapt to brand / design colors */
+    --red: #982929;
+    --red-light: #c54545;
+    --red-dark: #731e1e;
+    --blue: #1257be;
+    --blue-light: #457ed3;
+    --blue-dark: #0c3b81;
+    --teal: #107979;
+    --teal-light: #1fa6a6;
+    --teal-dark: #0d5656;
+    --yellow: #e5d846;
+    --yellow-light: #ecec86;
+    --yellow-dark: #abab17;
+    --orange: #d35f2d;
+    --orange-light: #e08862;
+    --orange-dark: #9b3e15;
+    --beige: #e5e5cb;
+    --brown: #654129;
+    --brown-light: #8d6042;
+    --brown-dark: #492d1b;
+    --pink: #fdadb8;
+    --purple: #792479;
+    --purple-light: #9f469f;
+    --purple-dark: #5e1d5e;
+
+    --grey-lighter: #dadada;
+    --grey-light: #a6a6a6;
+    --grey: #7a7a7a;
+    --grey-dark: #575757;
+    --grey-darker: #424242;
+
+    /* typography */
+    --font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    --font-family-special: var(--font-family);
+    --font-size: 1.6rem;
+    --line-height: 1.6;
+    --color: #383838;
+    --color-invert: white;
+
+    --heading-font-family: var(--font-family-special);
+    --heading-color: var(--color);
+    --heading-line-height: 1.25;
+
+    /* links */
+    --link-color: var(--primary-color);
+    --link-background: transparent;
+    --link-text-decoration: none;
+    --link-font-weight: normal;
+        --link-color-hover: var(--primary-color);
+        --link-background-hover: transparent;
+        --link-text-decoration-hover: underline;
+
+    --nav-link-font-size: var(--font-size);
+    --nav-link-line-height: var(--line-height);
+    --nav-link-color: var(--primary-color);
+    --nav-link-background: var(--grey-lighter);
+    --nav-link-text-decoration: none;
+    --nav-link-font-weight: normal;
+        --nav-link-color-hover: var(--primary-color);
+        --nav-link-background-hover: var(--grey-light);
+        --nav-link-text-decoration-hover: underline;
+        --nav-active-link-color-hover: var(--primary-color);
+        --nav-active-link-background-hover: var(--grey-light);
+
+    /* forms */
+    --input-field-border-color: #a4a4a4;
+    --input-field-border-radius: 5px;
+    --ipnut-field-color: var(--color);
+    --input-field-font-size: var(--font-size);
+    --input-field-line-height: var(--line-height);
+    --input-placeholder-color: grey;
+
+    --button-color: white;
+    --button-background: var(--primary-color);
+    --button-border-color: var(--primary-color-dark);
+    --button-font-weight: bold;
+    --button-border-radius: 6px;
+        --button-color-hover: white;
+        --button-background-hover: var(--primary-color-light);
+        --button-border-color-hover: var(--primary-color-dark);
+
+    --button-outlined-color: var(--primary-color);
+    --button-outlined-background: transparent;
+    --button-outlined-border-color: var(--primary-color);
+        --button-outlined-color-hover: var(--primary-color-light);
+        --button-outlined-background-hover: transparent;
+        --button-outlined-border-color-hover: var(--primary-color-light);
+
+    /* other */
+    --focus-color: black;
+    --focus-background: #ffff56;
+    --error-color: darkred;
+    --success-color: darkgreen;
+
+    --border-width: 1px;
+    --border-color: grey;
+    --image-border-width: 1px;
+    --image-border-color: #d0d0d0;
+    --radius: 4px;
+    --box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+    --transition: 0.15s all;
+}
+

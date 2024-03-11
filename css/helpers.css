@@ -1,0 +1,80 @@
+/*
+==============================================
+ HELPER CLASSES - show/hide etc
+==============================================
+*/
+
+.border { /* use .img-border for images */
+    border: var(--border-width) solid var(--border-color);
+}
+.clear {
+    clear: both;
+}
+@supports (display: flow-root) {
+    .clearfix {
+        display: flow-root;
+    }
+}
+@supports not (display: flow-root) {
+    .clearfix::after { /* do not combine with flex parent */
+        content: "";
+        clear: both;
+        display: block;
+        /*overflow: auto;  alternative */
+    }
+}
+
+/* ---------------- Show / hide
+*/
+/* Visually hidden, screen reader only or when focus received using tab */
+.screenreader-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+/* Note: To hide non focusable elements from screen reader, use aria-hidden="true" attribute */
+
+/* other */
+.hide-on-mobile,
+.hide-on-tablet {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .hide-on-desktop {
+        display: none;
+    }
+    .hide-on-mobile {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hide-on-tablet {
+        display: block;
+    }
+}
+
+/* Wrap tables or pre elements in a div with this class */
+.allow-horizontal-scroll {
+    overflow-x: scroll;
+}
+
+/* Hide tap highlight (on mobile/tablets) on buttons that don't link to pages, eg. toggles */
+.hide-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* IOS specifics */
+@media screen and (max-width: 769px) {
+    /* Absolute measure here */
+    body {
+        /* Stop iPhone/iPad from scaling text */
+        -webkit-text-size-adjust: none;
+    }
+}
+
