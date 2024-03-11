@@ -4,6 +4,7 @@
 - User simplify _construct (use php8 feature)
 - separate css files? (later build process?)
 
+- add dynamic year in footer
 - review form layout css
 - Add menu dropdown (on click for accessibility)
 - Add mobile menu other from html template
