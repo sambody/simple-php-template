@@ -19,18 +19,6 @@ class User
     private string $telefoon;
     private string $wachtwoord;
 
-    /**
-     * @param int $id
-     * @param string $voornaam
-     * @param string $achternaam
-     * @param string $email
-     * @param string $straat
-     * @param int $huisnummer
-     * @param string $postcode
-     * @param string $plaats
-     * @param string $telefoon
-     * @param string $wachtwoord
-     */
     public function __construct(
         int $id,
         string $voornaam,

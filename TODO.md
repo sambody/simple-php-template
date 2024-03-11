@@ -1,6 +1,10 @@
 
 
-- simplify method naming UsersDAO: get, getAll,...
+- simplify method naming UsersDAO and UserService: get, getAll,...
+- User simplify _construct (use php8 feature)
+- separate css files? (later build process?)
+
+- review form layout css
 - Add menu dropdown (on click for accessibility)
 - Add mobile menu other from html template
 - Add search form with icon
@@ -9,7 +13,7 @@
 - Add custom checkboxes, radios, slider checkboxes?
 
 
-- SASS version? like foundation/bootstrap, to get separate css files and functions/mixins? Or use separate files without SASS.
+
 
 
 
