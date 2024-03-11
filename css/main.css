@@ -151,7 +151,6 @@
  PAGE LAYOUT
 ==============================================
 */
-/*<editor-fold desc="Page layout">*/
 html {
     box-sizing: border-box;
     height: 100%;
@@ -240,9 +239,8 @@ body {
     }
 
 }
-/*</editor-fold>*/
 
-/*<editor-fold desc="Grids">*/
+
 /* ---------------- Predefined grids
 */
 /* Option 1, single row, any number of columns:
@@ -386,7 +384,7 @@ body {
     .start-at-12 {grid-column-start: 12;}
 
 }
-/*</editor-fold>*/
+
 
 /* ================================ */
 
@@ -395,7 +393,6 @@ body {
  Typography, images, tables
 ==============================================
 */
-/*<editor-fold desc="Typography">*/
 html {
     font-size: 62.5%;
     /* Now use rem (or em) for other font-sizes: 1rem = 10px */
@@ -475,7 +472,6 @@ a {
     transition: var(--transition);
     font-weight: var(--link-font-weight);
 }
-
 a:active,
 a:focus,
 a:hover {
@@ -515,25 +511,26 @@ ul {
     list-style: disc;
     margin-left: 22px;
     padding-left: 0;
+
+    li {
+        margin-left: 0;
+        margin-bottom: 1.2rem;
+        padding-left: 18px;
+    }
+    ul {
+        margin-bottom: 0;
+    }
 }
 
-ul li {
-    margin-left: 0;
-    margin-bottom: 1.2rem;
-    padding-left: 18px;
-}
-
-ul ul {
-    margin-bottom: 0;
-}
 
 ol {
     margin-left: 0;
+
+    li {
+        margin-bottom: 1.2rem;
+    }
 }
 
-ol li {
-    margin-bottom: 1.2rem;
-}
 
 /* Inline (horizontal) list
 */
@@ -556,13 +553,14 @@ ol li {
 .list-no-bullets {
     margin-left: 0;
     padding-left: 0;
+
+    li {
+        margin-left: 0;
+        padding-left: 0;
+        background: none;
+    }
 }
 
-.list-no-bullets li {
-    margin-left: 0;
-    padding-left: 0;
-    background: none;
-}
 
 /* ---------------- Definition lists
 */
@@ -571,19 +569,17 @@ dt {
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
-
 dd {
     margin-bottom: 1rem;
     margin-left: 0;
 }
-/*</editor-fold>*/
+
 
 /*
 ==============================================
  Images, media
 ==============================================
 */
-/*<editor-fold desc="Images, media">*/
 figure,
 figcaption {
     margin: 0;
@@ -594,27 +590,22 @@ svg {
     max-width: 100%;
     height: auto;
 }
-
 img {
     vertical-align: middle;
 }
-
 img.img-border {
     border: var(--image-border-width) solid var(--image-border-color);
 }
-
 img.center {
     display: block;
     margin: 0 auto 1rem;
     clear: both;
 }
-
 .center img {
     /* class on img container */
     display: block;
     margin: 0 auto;
 }
-
 img.image-styled {
     border: 5px solid var(--primary-color);
 }
@@ -622,7 +613,6 @@ img.image-styled {
 a img {
     transition: var(--transition);
 }
-
 a:hover img {
     /*opacity: 0.8;*/
 }
@@ -638,13 +628,12 @@ a:hover img {
         margin: 0 0 5px 15px;
     }
 }
-/*</editor-fold>*/
+
 
 /*
 ==============================================
  TABLES, HR
 */
-/*<editor-fold desc="Tables, hr">*/
 hr {
     clear: both;
     display: block;
@@ -676,34 +665,41 @@ thead:first-child tr th,
 thead:first-child tr td {
     border-top: 0;
 }
-/*</editor-fold>*/
+
 
 /*
 ==============================================
  MESSAGES - Errors and confirmations on top of page
 ==============================================
 */
-/*<editor-fold desc="Messages on top of page">*/
 .message {
     background: #eeeeee;
     color: black;
     margin: 0 0 30px 0;
     padding: 20px;
     font-size: var(--font-size);
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        color: inherit;
+    }
+    ul {
+        list-style: circle;
+        margin: 0 0 0 1rem;
+    }
+    li {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 }
-.message h2, h3, h4, h5, h6, p, li {
-    color: inherit;
-}
-.message ul {
-    list-style: circle;
-    margin: 0 0 0 1rem;
-}
-.message li {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
+
 .message-error {
     background: #f6d5d5;
     color: var(--error-color);
@@ -712,7 +708,7 @@ thead:first-child tr td {
     background: #d2e7d2;
     color: var(--success-color);
 }
-/*</editor-fold>*/
+
 
 /* ================================ */
 
@@ -721,7 +717,6 @@ thead:first-child tr td {
  FORM styles
 ==============================================
 */
-/*<editor-fold desc="Forms - Fonts">*/
 form {
     font-size: var(--font-size);
     line-height: var(--input-field-line-height);
@@ -733,11 +728,10 @@ textarea {
     font-size: var(--font-size);
     line-height: var(--input-field-line-height);
 }
-/*</editor-fold>*/
+
 
 /* ---------------- Input fields
 */
-/*<editor-fold desc="Forms - Input fields">*/
 input {
     margin: 0;
 }
@@ -861,11 +855,10 @@ input[type="file"] {
 .input[invalid] {
     box-shadow: 0 0 0 3px rgba(255, 12, 83, 0.2);
 }
-/*</editor-fold>*/
+
 
 /* ---------------- Forms - Buttons
 */
-/*<editor-fold desc="Forms - Buttons">*/
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -955,11 +948,10 @@ input[type="button"]:disabled:hover {
     border-color: #c0c0c0;
     cursor: not-allowed;
 }
-/*</editor-fold>*/
+
 
 /* ---------------- Checkboxes and radios
 */
-/*<editor-fold desc="Forms - Checkboxes, radios">*/
 input[type="radio"],
 input[type="checkbox"] {
     border-width: 0;
@@ -968,11 +960,10 @@ input[type="checkbox"] {
     margin: 0 7px 0 0;
     top: 0;
 }
-/*</editor-fold>*/
+
 
 /* ---------------- Form inline messages
 */
-/*<editor-fold desc="Forms - Errors etc ">*/
 /* input fields with error (class .has-error on a parent, or .is-error on input */
 .has-error input[type="email"],
 .has-error input[type="file"],
@@ -1011,7 +1002,7 @@ input[type="month"].is-error,
 input[type="week"].is-error,
 input[type="color"].is-error,
 select.is-error,
-textarea .is-error{
+textarea .is-error {
     border-color: #a80a0a;
     outline: 3px solid #dcad9d;
 }
@@ -1030,18 +1021,18 @@ textarea .is-error{
     color: #808080;
     margin-top: 5px;
 }
-/*</editor-fold>*/
+
 
 /* ---------------- Form layout
 */
-/*<editor-fold desc="Forms - Layout">*/
 form {
     margin-bottom: 0;
+
+    p {
+        margin: 0;
+    }
 }
 
-form p {
-    margin: 0;
-}
 
 label,
 .label,
@@ -1160,14 +1151,16 @@ label,
 
 /* inline form, all on one line */
 .form-layout-inline label {
-    margin-top: 2rem;
-}
-.form-layout-inline label:first-child { /* keep as separate rule */
-    margin-top: 0;
-}
-.form-layout-inline input[type="submit"] {
-    display: block;
-    margin-top: 1rem;
+    label {
+        margin-top: 2rem;
+    }
+    label:first-child { /* keep as separate rule */
+        margin-top: 0;
+    }
+    input[type="submit"] {
+        display: block;
+        margin-top: 1rem;
+    }
 }
 
 @media (min-width: 600px) {
@@ -1196,7 +1189,7 @@ label,
     }
 
 }
-/*</editor-fold>*/
+
 
 /* ================================ */
 
@@ -1205,7 +1198,6 @@ label,
  SECTION - SITE HEADER
 ==============================================
 */
-/*<editor-fold desc="Section - Header">*/
 .page-section-header {
     /*border-top: 8px solid var(--primary-color);*/
 }
@@ -1214,23 +1206,24 @@ label,
 */
 .site-logo {
     margin-bottom: 1.5rem;
-}
-.site-logo a {
-    display: inline-block;
+    a {
+        display: inline-block;
+    }
+    a:hover {
+        text-decoration: none;
+        background: transparent;
+    }
+    img {
+        width: 40px;
+    }
+    a:hover img {
+        opacity: 1;
+    }
 }
 
-.site-logo a:hover {
-    text-decoration: none;
-    background: transparent;
-}
 
-.site-logo a img {
-    width: 40px;
-}
 
-.site-logo a:hover img {
-    opacity: 1;
-}
+
 
 
 /* ---------------- Main navigation
@@ -1238,45 +1231,40 @@ label,
 .wrap-nav-main {
     /*display: none;*/
 }
-
 .nav-main {
     margin: 0;
     padding: 0;
-}
-.nav-main ul {
-    margin: 0;
-    padding: 0;
-}
 
-.nav-main li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    background: none;
-    border-bottom: 1px solid #d9d9d9;
-}
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background: none;
+        border-bottom: 1px solid #d9d9d9;
+    }
+    a {
+        display: block;
+        margin: 0;
+        padding: 7px 10px;
+        background: var(--nav-link-background);
 
-.nav-main a {
-    display: block;
-    margin: 0;
-    padding: 7px 10px;
-    background: var(--nav-link-background);
-
-    font-size: var(--nav-link-font-size);
-    line-height: var(--nav-link-font-weight);
-    text-decoration: var(--nav-link-text-decoration);
-}
-/* current page */
-.nav-main .is-active > a {
-    background: #efc2d2;
-}
-
-/* hover */
-.nav-main a:active,
-.nav-main a:focus,
-.nav-main a:hover {
-    color: #000;
-    text-decoration: none;
+        font-size: var(--nav-link-font-size);
+        line-height: var(--nav-link-font-weight);
+        text-decoration: var(--nav-link-text-decoration);
+    }
+    .is-active > a {
+        background: #efc2d2;
+    }
+    a:active,
+    a:focus,
+    a:hover {
+        color: #000;
+        text-decoration: none;
+    }
 }
 
 @media (min-width: 600px) {
@@ -1293,47 +1281,45 @@ label,
     }
     .nav-main {
         /*margin-left: auto;*/
-    }
-    .nav-main ul {
-        display: flex;
-        gap: 6px;
-    }
-    .nav-main li {
-        border-bottom: none;
+
+        ul {
+            display: flex;
+            gap: 6px;
+        }
+        li {
+            border-bottom: none;
+        }
     }
 
 }
-/*</editor-fold>*/
+
 
 /*
 ==============================================
  SECTION INTRO
 */
-/*<editor-fold desc="Section - Intro">*/
 .page-section-intro {}
 
-/*</editor-fold>*/
+
 
 /*
 ==============================================
  SECTION Content
 */
-/*<editor-fold desc="Section - Content">*/
 .page-section-content {}
 
-/*</editor-fold>*/
+
 
 /*
 ==============================================
  SECTION - FOOTER
 ==============================================
 */
-/*<editor-fold desc="Section - Footer">*/
 .page-section-footer > .container {
     padding-top: 30px;
     padding-bottom: 50px;
 }
-/*</editor-fold>*/
+
 
 /* ================================ */
 
@@ -1342,7 +1328,6 @@ label,
  HELPER CLASSES - show/hide etc
 ==============================================
 */
-/*<editor-fold desc="Helper classes">*/
 
 .border { /* use .img-border for images */
     border: var(--border-width) solid var(--border-color);
@@ -1417,4 +1402,4 @@ label,
         -webkit-text-size-adjust: none;
     }
 }
-/*</editor-fold>*/
+
