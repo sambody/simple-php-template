@@ -1,8 +1,6 @@
 
 
 - simplify method naming UsersDAO: get, getAll,...
-- 
-- CSS: use indentation
 - Add menu dropdown (on click for accessibility)
 - Add mobile menu other from html template
 - Add search form with icon
@@ -21,7 +19,7 @@
 # Todo NewProject
 
 =========== DONE ===========
-- After copy template (in Finder), remove: README.md, (License), (.gitignore or keep)
+- After copy template (in Finder), remove: README.md, (License), (.gitignore or keep), todo (if team)
 - Make empty DB tables, first the ones without foreign keys (see SQL file)
 - Make folders Business, Data, Entities, Exceptions, Presentation
 - Make entities: file/class "Item" with functions (getter/setter)

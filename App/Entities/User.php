@@ -18,8 +18,6 @@ class User
     private string $plaats;
     private string $telefoon;
     private string $wachtwoord;
-    private string $opmerking;
-    private bool $promotieGeldig;
 
     /**
      * @param int $id
@@ -32,8 +30,6 @@ class User
      * @param string $plaats
      * @param string $telefoon
      * @param string $wachtwoord
-     * @param string $opmerking
-     * @param bool $promotieGeldig
      */
     public function __construct(
         int $id,
@@ -45,9 +41,7 @@ class User
         string $postcode,
         string $plaats,
         string $telefoon,
-        string $wachtwoord,
-        string $opmerking = '',
-        bool $promotieGeldig = false
+        string $wachtwoord
     ) {
         $this->id = $id;
         $this->voornaam = $voornaam;
@@ -59,8 +53,6 @@ class User
         $this->plaats = $plaats;
         $this->telefoon = $telefoon;
         $this->wachtwoord = $wachtwoord;
-        $this->opmerking = $opmerking;
-        $this->promotieGeldig = $promotieGeldig;
     }
 
     public function getId(): int
@@ -112,17 +104,5 @@ class User
     {
         return $this->wachtwoord;
     }
-
-    public function getOpmerking(): string
-    {
-        return $this->opmerking;
-    }
-
-    public function isPromotieGeldig(): bool
-    {
-        return $this->promotieGeldig;
-    }
-
-    // No setters?
 
 }
