@@ -8,21 +8,23 @@ declare(strict_types=1);
 
 // ============== General functions
 
-function basePath(string $path)
+use JetBrains\PhpStorm\NoReturn;
+
+function basePath(string $path): string
 {
     return __DIR__ . '/../' . $path;
 }
 
-function redirect($destination)
+function redirect($destination): void
 {
     header('Location: ' . $destination);
     exit(0);
 }
 
-// Simple template with variables, default template file
+// Simple template view with attributes, default template file
 function view($content, $attributes = [], $template = 'template-full.php'): void
 {
-    extract($attributes);
+    extract($attributes); // from array to individual variables
 
     include(basePath('Views/' . $template));
 }
@@ -50,7 +52,7 @@ function dd($value)
     die();
 }
 
-function dump($value)
+function dump($value): void
 {
     // var_dump
     echo '<pre>';
