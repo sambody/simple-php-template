@@ -38,4 +38,4 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'logout') {
 // Show page, will include content and pageTitle
 $content = 'login-form.php';
 $pageTitle = 'Login';
-include_once 'App/Presentation/template-empty.php';
+include_once 'App/Views/template-empty.php';

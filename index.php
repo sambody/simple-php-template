@@ -17,7 +17,7 @@ require_once __DIR__ . '/App/Helpers/helpers.php';
 // Show page, will include content and pageTitle
 $content = 'home-components.php';
 $pageTitle = 'Home page';
-include_once 'App/Presentation/template-full.php';
+include_once 'App/Views/template-full.php';
 
 
 
