@@ -18,7 +18,6 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'login') {
         $paswoord = $_POST['paswoord'];
         $userService = new UserService();
 
-
         if (!$userService->validateUserPassword($email, $paswoord)) {
             $error = 'Email of paswoord is niet correct';
         } else {
@@ -36,6 +35,6 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'logout') {
 }
 
 // Show page, will include content and pageTitle
-$content = 'login-form.php';
+$content = 'login.view.php';
 $pageTitle = 'Login';
 include_once 'App/Views/template-empty.php';

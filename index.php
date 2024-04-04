@@ -15,7 +15,7 @@ require_once __DIR__ . '/App/Helpers/helpers.php';
 //$sessionUser = Session::get('user');
 
 // Show page, will include content and pageTitle
-$content = 'home-components.php';
+$content = 'home-blocks.view.php';
 $pageTitle = 'Home page';
 include_once 'App/Views/template-full.php';
 
