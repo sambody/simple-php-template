@@ -22,7 +22,7 @@ function redirect($destination): void
 }
 
 // Simple template view with attributes, default template file
-function view($content, $attributes = [], $template = 'template-full.php'): void
+function view($content, $attributes = [], $template = 'layout.php'): void
 {
     extract($attributes); // from array to individual variables
 

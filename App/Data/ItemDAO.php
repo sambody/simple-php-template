@@ -8,6 +8,7 @@ namespace App\Data;
 
 class ItemDAO extends AbstractDBHandler
 {
+    // CAREFUL: Function names have to be different from AbstractDBHandler names !!
     public function getAllItems(): bool|array
     {
         // Get all rows
@@ -23,23 +24,7 @@ class ItemDAO extends AbstractDBHandler
         return $this->read($sql, $placeholders, false);
     }
 
-//    public function getId(string $email): string
-//    {
-//        // Get single value
-//        $sql = "select id from items where email = :email";
-//        $db = new DBConnection($this->config);
-//        return $db->run($sql, ['email' => $email])->fetchColumn();
-//    }
-
-//    public function isExisting(int $id): bool
-//    {
-//        // Check existence
-//        $sql = "select 1 from items where id = :id";
-//        $db = new DBConnection($this->config);
-//        return $db->run($sql, ['id' => $id])->fetchColumn();
-//    }
-
-    public function getTotalNumberOfItems(): int
+    public function getItemCount(): int
     {
         // Get count
         $sql = "select count(1) from items";
@@ -65,10 +50,9 @@ class ItemDAO extends AbstractDBHandler
             'titel' => $titel
         ];
         return $this->update($sql, $placeholders);
-
     }
 
-    public function removeItem(int $id): int
+    public function remove(int $id): int
     {
         // Remove single row
         $sql = "delete from items where id = :id";

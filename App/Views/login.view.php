@@ -1,5 +1,5 @@
 <h1>Login</h1>
-<?php if ($error) : ?>
+<?php if (! empty($error)) : ?>
     <p class="message-error"><?= $error ?></p>
 <?php endif; ?>
 <form action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="post">

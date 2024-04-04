@@ -14,9 +14,9 @@ class UserService
         $this->usersDAO = new UsersDAO();
     }
 
-    public function getUser(int $id): User|bool
+    public function getUser(int $id): ?User
     {
-        $user = $this->usersDAO->getUserById($id);
+        $user = $this->usersDAO->getUser($id);
         if ($user) {
             return new User(
                 $user['id'],
@@ -31,10 +31,10 @@ class UserService
                 $user['wachtwoord']
             );
         }
-        return false;
+        return null;
     }
 
-    public function getUserByEmail(string $email): User|bool
+    public function getUserByEmail(string $email): ?User
     {
         $user = $this->usersDAO->getUserByEmail($email);
         if ($user) {
@@ -51,9 +51,10 @@ class UserService
                 $user['wachtwoord']
             );
         }
-        return false;
+        return null;
     }
 
+    // Todo: Move to Authentication?
     public function validatePassword(string $email, string $paswoord): bool
     {
         $user = $this->usersDAO->getUserByEmail($email);
@@ -73,7 +74,7 @@ class UserService
         string $tel,
         string $paswoord
     ): ?int {
-        // Add user, return id
+        // Add user, get id
         $result = $this->usersDAO->addUser($voornaam, $naam, $email, $straat, $huisnummer, $plaatsId, $tel, $paswoord);
 
         if (!$result) {

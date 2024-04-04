@@ -6,6 +6,7 @@ namespace App\Data;
 
 class UsersDAO extends AbstractDBHandler
 {
+    // Keep full names, to prevent conflict with AbstractDBHandler
     public function getAllUsers(): bool|array
     {
         // Get all rows
@@ -13,7 +14,7 @@ class UsersDAO extends AbstractDBHandler
         return $this->read($sql);
     }
 
-    public function getUserById(int $id): bool|array
+    public function getUser(int $id): bool|array
     {
         // Get single row
         $sql = "select g.id, voornaam, achternaam, email, straat, huisnummer, p.postcode as postcode, p.plaats as plaats, telefoon, wachtwoord, opmerking, promotieGeldig
@@ -57,4 +58,6 @@ class UsersDAO extends AbstractDBHandler
         ;
         return $this->create($sql, $placeholders); // return last inserted id
     }
+
+    // Remove user?
 }

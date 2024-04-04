@@ -54,9 +54,9 @@ class ItemService
         return true;
     }
 
-    public function remove(int $id): ?bool
+    public function update(int $id, string $titel): ?bool
     {
-        $result = $this->itemDAO->removeItem($id);
+        $result = $this->itemDAO->updateItem($id, $titel);
 
         if (!$result) {
             return null;
@@ -65,9 +65,9 @@ class ItemService
         return true;
     }
 
-    public function update(int $id, string $titel): ?bool
+    public function remove(int $id): ?bool
     {
-        $result = $this->itemDAO->updateItem($id, $titel);
+        $result = $this->itemDAO->remove($id);
 
         if (!$result) {
             return null;

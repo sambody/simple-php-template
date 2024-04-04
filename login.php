@@ -24,7 +24,7 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'login') {
             $error = 'Email of paswoord is niet correct';
         } else {
             $userData = ['email' => $email];
-            $session->login($userData, 'index.php');
+            $session::login($userData, 'index.php');
         }
 
     } else {
@@ -33,15 +33,10 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'login') {
 }
 
 if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'logout') {
-    $session->logout('index.php');
+    $session::logout('index.php');
 }
-
-// Show page, will include content and pageTitle
-//$content = 'login.view.php';
-//$pageTitle = 'Login';
-//include_once 'App/Views/template-empty.php';
 
 view('login.view.php', [
     'pageTitle' => 'Login',
     'activeNavItem' => 'login',
-], 'template-minimal.php');
+], 'layout-minimal.php');
