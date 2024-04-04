@@ -1,34 +1,5 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TemplateStatic</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body class="page-home">
-<header class="page-section page-section-header">
-    <div class="container">
-        <div class="site-logo"><a href="/" title="Home"><img src="images/site/temp-logo.png" alt="Logo"></a></div>
-        <nav class="nav-main">
-            <ul role="menu">
-                <li role="menuitem" class="is-active"><a href="#" title="">Home</a></li>
-                <li role="menuitem"><a href="#" title="">Page one</a></li>
-                <li role="menuitem"><a href="#" title="">Page two</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<!--<section class="page-section">-->
-<!--    <div class="container">-->
-<!--        -->
-<!--    </div>-->
-<!--</section>-->
-
-<section class="page-section page-section-content">
-    <div class="container">
+<div class="page-wrap page-wrap-content">
+    <div class="page-section page-section-content">
         <div class="content-main" role="main">
 
             <h1>PageTitle</h1>
@@ -36,10 +7,11 @@
                 de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak
                 met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf
                 eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. </p>
-            <p>David n’a pas fait <strong>grand chose</strong>, il a juste créé un embryon de programme. Mais ce
-                programme s’est développé lui-même. Comme l’ordinateur de David n’était pas suffisant, il a utilisé le
-                réseau pour s’installer sur les autres ordinateurs. Il a grandi alors de manière exponentielle et le
-                voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
+            <p>Lorem Ipsum is slechts <a href="#">een proeftekst</a> uit het drukkerij- en zetterijwezen. Lorem Ipsum is
+                de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak
+                met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf
+                eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. </p>
+            voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
 
             <hr>
 
@@ -107,7 +79,8 @@
                         <label for="contact-email">E-mail</label>
                     </div>
                     <div class="form-group-input">
-                        <input class="is-error" type="email" name="contact-email" id="contact-email" autocomplete="email" required>
+                        <input class="is-error" type="email" name="contact-email" id="contact-email"
+                               autocomplete="email" required>
                         <div class="form-error">An error message</div>
                     </div>
                 </div>
@@ -224,27 +197,10 @@
                 <div class="column">Span 1</div>
             </div>
         </div>
-
         <div class="content-sub">
             <aside class="widget">
                 <p>A widget or sidebar component (aside)</p>
             </aside>
         </div>
-
     </div>
-</section>
-
-<section class="page-section">
-    <div class="container fluid">
-        Fluid, full width container
-    </div>
-</section>
-
-<footer class="page-section page-section-footer">
-    <div class="container">
-        <p class="footer-legal">© SiteName in footer</p>
-    </div>
-</footer>
-
-</body>
-</html>
+</div>

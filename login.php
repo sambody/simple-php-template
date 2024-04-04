@@ -9,14 +9,7 @@ use App\Business\UserService;
 use App\Entities\User;
 
 $error = '';
-
 $session = new Session();
-
-// Debug
-//$userService = new UserService();
-//$alleGebruikers = $userService->getAllUsers();
-//$sessionLogin = $_SESSION['loggedin'] ?? null;
-
 
 if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'login') {
     // login attempt
