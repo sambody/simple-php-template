@@ -35,5 +35,7 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'logout') {
     $session->logout('index.php');
 }
 
-include('App/Presentation/login-form.php');
-
+// Show page, will include content and pageTitle
+$content = 'login-form.php';
+$pageTitle = 'Login';
+include_once 'App/Presentation/template-empty.php';
