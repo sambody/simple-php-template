@@ -54,11 +54,6 @@ class UserService
         return false;
     }
 
-    //public function getPlaats(string $postcode): bool|array
-    //{
-    //    return $this->usersDAO->getPlaatsByPostcode($postcode);
-    //}
-
     public function validatePassword(string $email, string $paswoord): bool
     {
         $user = $this->usersDAO->getUserByEmail($email);

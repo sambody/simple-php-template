@@ -8,6 +8,8 @@ use App\Business\Session;
 use App\Business\UserService;
 use App\Entities\User;
 
+require_once __DIR__ . '/App/Helpers/helpers.php';
+
 $error = '';
 $session = new Session();
 
@@ -18,7 +20,7 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'login') {
         $paswoord = $_POST['paswoord'];
         $userService = new UserService();
 
-        if (!$userService->validateUserPassword($email, $paswoord)) {
+        if (!$userService->validatePassword($email, $paswoord)) {
             $error = 'Email of paswoord is niet correct';
         } else {
             $userData = ['email' => $email];
@@ -35,6 +37,11 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && $_POST['action'] === 'logout') {
 }
 
 // Show page, will include content and pageTitle
-$content = 'login.view.php';
-$pageTitle = 'Login';
-include_once 'App/Views/template-empty.php';
+//$content = 'login.view.php';
+//$pageTitle = 'Login';
+//include_once 'App/Views/template-empty.php';
+
+view('login.view.php', [
+    'pageTitle' => 'Login',
+    'activeNavItem' => 'login',
+], 'template-minimal.php');

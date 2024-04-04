@@ -1,5 +1,5 @@
-<div class="page-wrap page-wrap-content">
-    <div class="page-section page-section-content">
+<div class="page-section page-section-content">
+    <div class="container">
         <div class="content-main" role="main">
 
             <h1>PageTitle</h1>
@@ -11,7 +11,6 @@
                 de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak
                 met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf
                 eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. </p>
-            voilà : Prélude. Connecté à tout les ordinateurs et capable de leur donner les ordres qu’il veut.</p>
 
             <hr>
 

@@ -2,19 +2,44 @@
 
 declare(strict_types=1);
 
-//function basePath(string $path){
-//    return __DIR__ . '/../' . $path;
-//}
+// To use these helper files:
+// either require this file every time or add file to composer autoload config file.
+// In a framework, better wrap them with "if not existing" to avoid collision
 
-// Todo: rename this file to debug.php? Or add other helpers?
+// ============== General functions
 
-//function redirect($destination) {
-//    header('Location: ' . $destination);
-//    exit(0);
-//}
+function basePath(string $path)
+{
+    return __DIR__ . '/../' . $path;
+}
 
-// Debug helper functions
-// To use: either require the file or add file to composer autoload config file.
+function redirect($destination)
+{
+    header('Location: ' . $destination);
+    exit(0);
+}
+
+// Simple template with variables, default template file
+function view($content, $attributes = [], $template = 'template-full.php'): void
+{
+    extract($attributes);
+
+    include(basePath('Views/' . $template));
+}
+
+// Make slug (or for class name)
+function slugify($urlString): array|string|null
+{
+    $search = ['î', 'â', 'à', 'Î', 'ë', 'é', 'è', 'ê', 'Ë', 'Ê', 'É', 'È', 'ô', 'ù', 'û', 'ç'];
+    $replace = ['i', 'a', 'a', 'i', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'o', 'u', 'u', 'c'];
+    $str = str_ireplace($search, $replace, strtolower(trim($urlString)));
+    $str = preg_replace('/[^\w\d\-\ ]/', '', $str);
+    $str = str_replace(' ', '-', $str);
+    return preg_replace('/\-{2,}/', '-', $str);
+}
+
+
+// ============== Debug functions
 
 function dd($value)
 {
@@ -33,9 +58,3 @@ function dump($value)
     echo '</pre>';
 }
 
-//function writeToLog(string $message): void // Or use custom log system
-//{
-//    // Write to apache log (or php log if set in php.ini)
-//    date_default_timezone_set('Europe/Brussels');
-//    error_log($message);
-//}
