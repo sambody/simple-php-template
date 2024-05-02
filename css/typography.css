@@ -26,10 +26,6 @@ p:last-child, dd:last-child, li:last-child {
     margin-bottom: 0;
 }
 
-p, dl, ul {
-    margin-top: 0;
-}
-
 ol p, ul p, ol ol, ul ul, label p, dt p, dd p, table p {
     font-size: inherit; /* if using em */
 }
