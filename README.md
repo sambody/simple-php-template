@@ -1,8 +1,7 @@
 # Simple PHP template
 
-A simple, basic PHP template. Work in progress as part of my training.
+A simple, basic PHP template or starter kit. Work in progress.
 
 - MVC structure.
 - No external frameworks (for now)
 - PHP 8 ready.
-- Private, for now.
